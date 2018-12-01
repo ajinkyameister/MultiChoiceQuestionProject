@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChoiceUserTable extends Migration
+class CreateResellersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateChoiceUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('choice_user', function (Blueprint $table) {
+        Schema::create('resellers', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('choice_id');
             $table->timestamps();
         });
     }
@@ -28,7 +26,6 @@ class CreateChoiceUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('choice_user');
-        // Schema::dropIfExists('question_option');
+        Schema::dropIfExists('resellers');
     }
 }

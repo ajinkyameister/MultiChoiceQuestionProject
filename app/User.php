@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'role','phone_number','address','pan_card','email', 'password',
     ];
 
     /**
@@ -44,6 +44,11 @@ class User extends Authenticatable
     public function tests(){
         
         return $this->belongsToMany(Test::class);
+    }
+
+    public function getAllResellers(){
+
+        return $allResellers = $this->where('role','reseller')->get();
     }
     
 }

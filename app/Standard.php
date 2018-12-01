@@ -21,6 +21,13 @@ class Standard extends Model
     	
     	return $this->belongsToMany(User::class);
     }
+
+    public function students()
+    {
+
+            return $this->users()->where('role','student')->get();
+
+    }
     
     
     

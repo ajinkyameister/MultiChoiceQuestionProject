@@ -23,6 +23,14 @@ class Choice extends Model
     	return $this->belongToMany(User::class);
     	
     }
+
+    public function students(){
+        return $this->users()->where('role','student')->get();
+        
+    }
+    
+    
+
     
     
     
