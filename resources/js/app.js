@@ -18,8 +18,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('reseller', require('./components/Reseller.vue'));
-
-
+Vue.component('modifyreseller', require('./components/ModifyReseller.vue'));
 
 
 //-------------------------------------------------------------------------------------//

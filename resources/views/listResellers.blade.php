@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<div>
-		<ul>
 
-			@foreach($resellers as $reseller)
+@extends('layouts.app')
 
-			<li> <a href="#"> {{$reseller->name}}</a> </li>
+@section('mainbody')
+		
+			
+	<div id="app">		
+
+			@foreach($resellers as $user)
+
+
+				<li> <a href=users/{{$user->id}}> {{$user->name}}</a> </li>
 
 			@endforeach	
 
 
-
-		</ul>
+			
 	</div>
-</body>
-</html>
+@endsection
+	

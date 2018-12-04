@@ -65,4 +65,4 @@ Route::post('/resellers','ResellerController@store');//
 
 Route::get('/resellers','ResellerController@show');
 
-// Route::get('/resellers/{user}','ResellerController')
+Route::get('/users/{user}','ResellerController@edit');

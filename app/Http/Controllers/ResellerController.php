@@ -65,11 +65,11 @@ class ResellerController extends Controller
     {
         $resellers = $user->where('role','reseller')->get(); 
 
-        // dd($resellers);
-                 
-                    $resellers = $user->getAllResellers();
+            
+        $resellers = $user->getAllResellers();
         
         return view('listResellers',compact('resellers'));
+
     }
 
     /**
@@ -78,9 +78,11 @@ class ResellerController extends Controller
      * @param  \App\Reseller  $reseller
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(User $user)
     {
-        //
+        return view('modifyResellerForm',compact('user'));
+
+        // return $user;
     }
 
     /**
