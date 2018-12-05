@@ -48010,6 +48010,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -48018,10 +48034,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	},
 
-	methods: {
-		sayhi: function sayhi() {
+	data: function data() {
+		return {
+			showform: false,
+			userName: "",
+			address: "",
+			phone_number: "",
+			email: "",
+			pan_card: ""
+		};
+	},
 
-			alert("hi");
+
+	methods: {
+		sayhi: function sayhi(selected) {
+			var _this = this;
+
+			this.reseller.forEach(function (names) {
+
+				if (selected.name == names.name) {
+
+					_this.userName = selected.name;
+					_this.address = selected.address;
+					_this.phone_number = selected.phone_number;
+					_this.email = selected.email;
+					_this.pan_card = selected.pan_card;
+				}
+			});
+
+			// console.log(userName);	
+			this.showform = true;
 		}
 	}
 });
@@ -48035,21 +48077,153 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c("h1", [
-        _c(
-          "a",
-          {
-            on: {
-              click: function($event) {
-                _vm.sayhi()
+    _c(
+      "div",
+      [
+        _vm._v("\n\t\t{{-- "),
+        _c("h1", [
+          _c(
+            "a",
+            {
+              on: {
+                click: function($event) {
+                  _vm.sayhi()
+                }
               }
-            }
-          },
-          [_vm._v(" Hello World ")]
-        )
-      ])
-    ])
+            },
+            [_vm._v(" Hello World ")]
+          )
+        ]),
+        _vm._v("\t --}}\n\t\t"),
+        _c("hr"),
+        _vm._v(" "),
+        _vm.showform
+          ? _c("form", [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.userName,
+                    expression: "userName"
+                  }
+                ],
+                attrs: { type: "text", name: "name" },
+                domProps: { value: _vm.userName },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.userName = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.address,
+                    expression: "address"
+                  }
+                ],
+                attrs: { type: "text", name: "name" },
+                domProps: { value: _vm.address },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.address = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.phone_number,
+                    expression: "phone_number"
+                  }
+                ],
+                attrs: { type: "text", name: "name" },
+                domProps: { value: _vm.phone_number },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.phone_number = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.email,
+                    expression: "email"
+                  }
+                ],
+                attrs: { type: "text", name: "name" },
+                domProps: { value: _vm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.email = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.pan_card,
+                    expression: "pan_card"
+                  }
+                ],
+                attrs: { type: "text", name: "name" },
+                domProps: { value: _vm.pan_card },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.pan_card = $event.target.value
+                  }
+                }
+              })
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm._l(_vm.reseller, function(onereseller) {
+          return _c("li", [
+            _c(
+              "a",
+              {
+                on: {
+                  click: function($event) {
+                    _vm.sayhi(onereseller)
+                  }
+                }
+              },
+              [_vm._v(" " + _vm._s(onereseller.name) + " ")]
+            )
+          ])
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []
