@@ -40,9 +40,9 @@ Route::get('/home',function(){
 	return view('home');
 })->name('home')->middleware('auth');
 
-Route::get('/institute',function(){
-	return view('institute');
-})->name('institute')->middleware('auth');
+// Route::get('/institute',function(){
+// 	return view('institute');
+// })->name('institute')->middleware('auth');
 
 Route::get('/reseller',function(){
 	return view('reseller');
@@ -52,7 +52,7 @@ Route::get('/reseller',function(){
 // 	return view('reseller');
 // })->name('reseller')->middleware('auth');
 
-//-------------------------------TEST CODE------------------------------------------//
+//-------------------------------Reseller Routes------------------------------------------//
 
 Route::get('/reseller/create',function(){
 
@@ -66,3 +66,18 @@ Route::post('/resellers','ResellerController@store');//
 Route::get('/resellers','ResellerController@show');
 
 Route::get('/users/{user}','ResellerController@edit');
+
+//-------------------------------Institute Routes------------------------------------------//
+
+Route::get('/institutes',function(){
+  return view('institute'); 
+
+  // return "Hello World from Institute";
+})->name('institute');
+
+Route::post('/institutes','InstituteController@store');
+
+Route::get('/institutes/show','InstituteController@show');
+
+Route::get('/institutes/{institute}','InstituteController@edit');
+  

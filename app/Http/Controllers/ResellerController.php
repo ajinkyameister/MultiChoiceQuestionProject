@@ -53,6 +53,8 @@ class ResellerController extends Controller
 
        return view('listResellers',compact('users'));
 
+       // return redirect('/resellers/show');
+
     }
 
     /**

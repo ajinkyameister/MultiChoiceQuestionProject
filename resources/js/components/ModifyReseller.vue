@@ -1,28 +1,45 @@
 <template>
 	<div>
-		<div>
-			{{-- <h1>
-				<a @click="sayhi()" > Hello World </a>
-			</h1>	 --}}
-			<hr>
-			<form v-if="showform">
-				
-				<input type="text" name="name" v-model="userName">
-				<input type="text" name="name" v-model="address">
-				<input type="text" name="name" v-model="phone_number">
-				<input type="text" name="name" v-model="email">
-				<input type="text" name="name" v-model="pan_card">
-				
-			</form>		
-				<li v-for="onereseller in reseller"> 
-				
-					<a @click="sayhi(onereseller)"> {{onereseller.name}} </a> 
 
-				</li>
+		<hr>
+		
+		<div id="modal"class="modal is-active" v-if="showModal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title">Modify Reseller</p>
+					<button class="delete" aria-label="close" @click="closeModal()"></button>
+				</header>
+				<section class="modal-card-body">
 
-				
-		</div> 
+					<form v-if="showform">
 
+						<label> Name:</label>
+						<input type="text" name="name" v-model="userName"> <br> <br>
+
+						<label> Address:</label>
+						<input type="text" name="name" v-model="address"> <br> <br>
+						
+						<label> Phone Number:</label>
+						<input type="text" name="name" v-model="phone_number"> <br> <br>
+						
+						<label> Email:</label>
+						<input type="text" name="name" v-model="email"> <br> <br>
+						
+						<label> PAN Card:</label>
+						<input type="text" name="name" v-model="pan_card"> <br> <br>
+
+					</form>	
+
+				</section>	
+			</div>
+
+		</div>	
+		<li v-for="onereseller in reseller"> 
+
+			<a @click="sayhi(onereseller)"> {{onereseller.name}} </a> 
+
+		</li>
 	</div>
 
 </template>
@@ -38,11 +55,13 @@
 		data(){
 			return {
 				showform:false,
+				showModal:false,
 				userName:"",
 				address:"",
 				phone_number:"",
 				email:"",
-				pan_card:""
+				pan_card:"",
+
 			}
 
 		},
@@ -65,8 +84,20 @@
 				});
 
 				// console.log(userName);	
-				this.showform = true;			
-			}
+				this.showform = true;
+				this.showModal = true;			
+			},
+			closeModal(){
+
+				this.showModal=false;
+			},
+			
+			openModal(){
+
+				this.showModal=true;
+
+			},
+			
 		}	
 	}	
 	
