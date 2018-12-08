@@ -19,8 +19,8 @@ window.Vue = require('vue');
 
 Vue.component('reseller', require('./components/Reseller.vue'));
 Vue.component('modifyreseller', require('./components/ModifyReseller.vue'));
-
-
+Vue.component('institute', require('./components/Institute.vue'));
+Vue.component('modifyinstitute', require('./components/ModifyInstitute.vue'));
 //-------------------------------------------------------------------------------------//
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));

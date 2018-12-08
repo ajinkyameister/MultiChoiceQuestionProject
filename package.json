@@ -28,5 +28,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajinkyameister/MultiChoiceQuestionProject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ajinkyameister/MultiChoiceQuestionProject/issues"
+  },
+  "homepage": "https://github.com/ajinkyameister/MultiChoiceQuestionProject#readme",
   "description": ""
 }
