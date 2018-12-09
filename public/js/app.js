@@ -48049,63 +48049,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -48144,22 +48087,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				}
 			});
 
-			// console.log(userName);	
-
-			// 	this.showform = true;			
-			// },
-
-			// closeModal(){
-
-			// 	this.showform = false;
-			// }
-
 			this.showform = true;
 			this.showModal = true;
 		},
 		closeModal: function closeModal() {
 
 			this.showModal = false;
+			this.showform = false;
 		}
 	}
 });
@@ -48175,212 +48109,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._v("\n\n{{-- \t\t"),
-      _c(
-        "div",
-        [
-          _c("hr"),
-          _vm._v(" "),
-          _vm.showform
-            ? _c(
-                "div",
-                { staticClass: "modal is-active", attrs: { id: "modal" } },
-                [
-                  _c("div", { staticClass: "modal-background" }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-card" }, [
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _c("section", { staticClass: "modal-card-body" }, [
-                      _vm.showform
-                        ? _c("form", [
-                            _c("label", { attrs: { color: "white" } }, [
-                              _vm._v(" Name:")
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.userName,
-                                  expression: "userName"
-                                }
-                              ],
-                              attrs: { type: "text", name: "name" },
-                              domProps: { value: _vm.userName },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.userName = $event.target.value
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("br"),
-                            _c("br"),
-                            _vm._v(" "),
-                            _c("label", [_vm._v(" address:")]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.address,
-                                  expression: "address"
-                                }
-                              ],
-                              attrs: { type: "text", name: "name" },
-                              domProps: { value: _vm.address },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.address = $event.target.value
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("br"),
-                            _c("br"),
-                            _vm._v(" "),
-                            _c("label", [_vm._v(" phone_number:")]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.phone_number,
-                                  expression: "phone_number"
-                                }
-                              ],
-                              attrs: { type: "text", name: "name" },
-                              domProps: { value: _vm.phone_number },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.phone_number = $event.target.value
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("label", [_vm._v(" Email:")]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.email,
-                                  expression: "email"
-                                }
-                              ],
-                              attrs: { type: "text", name: "name" },
-                              domProps: { value: _vm.email },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.email = $event.target.value
-                                }
-                              }
-                            }),
-                            _c("br"),
-                            _c("br"),
-                            _vm._v(" "),
-                            _c("label", [_vm._v(" pan Card:")]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.pan_card,
-                                  expression: "pan_card"
-                                }
-                              ],
-                              attrs: { type: "text", name: "name" },
-                              domProps: { value: _vm.pan_card },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.pan_card = $event.target.value
-                                }
-                              }
-                            }),
-                            _c("br"),
-                            _c("br"),
-                            _vm._v(" "),
-                            _c("footer", { staticClass: "modal-card-foot" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "button is-success",
-                                  attrs: { type: "submit" }
-                                },
-                                [_vm._v("Save changes")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "button",
-                                  on: {
-                                    click: function($event) {
-                                      _vm.closeModal()
-                                    }
-                                  }
-                                },
-                                [_vm._v("Cancel")]
-                              )
-                            ])
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("button", {
-                      staticClass: "modal-close is-large",
-                      attrs: { "aria-label": "close" },
-                      on: {
-                        click: function($event) {
-                          _vm.closeModal()
-                        }
-                      }
-                    })
-                  ])
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm._l(_vm.reseller, function(onereseller) {
-            return _c("li", [
-              _c(
-                "a",
-                {
-                  on: {
-                    click: function($event) {
-                      _vm.sayhi(onereseller)
-                    }
-                  }
-                },
-                [_vm._v(" " + _vm._s(onereseller.name) + " ")]
-              )
-            ])
-          })
-        ],
-        2
-      ),
-      _vm._v("  --}}\n\n\n\t\t"),
       _c("hr"),
       _vm._v(" "),
       _vm.showModal
@@ -48595,16 +48323,7 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", { staticClass: "modal-card-head" }, [
-      _c("p", { staticClass: "modal-card-title" }, [_vm._v("Modal title")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -48984,7 +48703,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -48997,7 +48715,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			showform: false,
 			instituteName: "",
-			// modifyMe:false,
+			instituteId: "",
 			showModal: false,
 			csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
@@ -49014,6 +48732,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				if (selected.name == names.name) {
 
 					_this.instituteName = selected.name;
+					_this.instituteId = selected.id;
 				}
 			});
 
@@ -49030,15 +48749,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		submitModifyInstiForm: function submitModifyInstiForm() {
 
-			// this.modifyMe=true;
+			axios.post('/institutes/' + this.instituteId, {
 
-			axios.post('/institutes', {
-
-				'name': this.instituteName
-				// 'modify':this.modifyMe,
+				'name': this.instituteName,
+				'id': this.instituteId
 			});
 
-			this.closeModal();
+			// this.closeModal();
+		}
+	},
+
+	computed: {
+
+		urlValue: function urlValue() {
+			return '/institutes/' + this.instituteId;
 		}
 	}
 });
@@ -49085,7 +48809,7 @@ var render = function() {
                     ? _c(
                         "form",
                         {
-                          attrs: { method: "POST" },
+                          attrs: { method: "POST", action: _vm.urlValue },
                           on: { submit: _vm.submitModifyInstiForm }
                         },
                         [
@@ -49111,6 +48835,27 @@ var render = function() {
                                   return
                                 }
                                 _vm.instituteName = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.instituteId,
+                                expression: "instituteId"
+                              }
+                            ],
+                            attrs: { type: "text", name: "id" },
+                            domProps: { value: _vm.instituteId },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.instituteId = $event.target.value
                               }
                             }
                           }),

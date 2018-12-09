@@ -63,7 +63,8 @@ class InstituteController extends Controller
 
     	$institutes = $institute->getAllInstitutes();
 
-    	return view('listInstitutes',compact('institutes'));
+    	
+        return view('listInstitutes',compact('institutes'));
 
     }
 
@@ -73,11 +74,11 @@ class InstituteController extends Controller
      * @param  \App\Reseller  $reseller
      * @return \Illuminate\Http\Response
      */
-    public function edit(Institute $institute)
+    public function edit(Request $request,Institute $institute)
     {
-    	return view('modifyInstituteForm',compact('institute'));
+    	// return view('modifyInstituteForm',compact('institute'));
 
-        // return $user;
+        return "Hello Edit method in controller entered";
     }
 
     /**
@@ -87,9 +88,9 @@ class InstituteController extends Controller
      * @param  \App\Reseller  $reseller
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Institute $institute)
     {
-        //
+        // dd($request->id);
     }
 
     /**

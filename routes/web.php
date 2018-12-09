@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,6 +81,8 @@ Route::post('/institutes','InstituteController@store');
 
 Route::get('/institutes/show','InstituteController@show');
 
-Route::get('/institutes/{institute}','InstituteController@edit');
+// Route::get('/institutes/{institute}','InstituteController@edit');
   
+Route::post('/institutes/{institute}','InstituteController@edit')->name('modifyInstitutes');
+
 
