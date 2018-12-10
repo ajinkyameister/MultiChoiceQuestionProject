@@ -86,3 +86,22 @@ Route::get('/institutes/show','InstituteController@show');
   
 Route::post('/institutes/{institute}','InstituteController@edit')->name('modifyInstitutes');
 
+
+//-------------------------------Standard Routes------------------------------------------//
+
+
+
+Route::get('/standards',function(){
+  return view('standard'); 
+
+  // return "Hello World from Institute";
+})->name('standard');
+
+Route::post('/standards','StandardController@store');
+
+Route::get('/standard/show','StandardController@show');
+
+// Route::get('/institutes/{institute}','InstituteController@edit');
+
+  
+Route::post('/standards/{standard}','StandardController@update')->name('modifystandard');

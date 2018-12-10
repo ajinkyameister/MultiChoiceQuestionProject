@@ -14058,6 +14058,9 @@ Vue.component('reseller', __webpack_require__(40));
 Vue.component('modifyreseller', __webpack_require__(43));
 Vue.component('institute', __webpack_require__(46));
 Vue.component('modifyinstitute', __webpack_require__(49));
+Vue.component('standard', __webpack_require__(61));
+Vue.component('modifystandard', __webpack_require__(64));
+
 //-------------------------------------------------------------------------------------//
 
 Vue.component('example-component', __webpack_require__(52));
@@ -47891,8 +47894,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -48984,6 +48985,606 @@ module.exports = Component.exports
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(62)
+/* template */
+var __vue_template__ = __webpack_require__(63)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Standard.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9986e4b0", Component.options)
+  } else {
+    hotAPI.reload("data-v-9986e4b0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+	props: {
+		// standards:{
+
+		// 	type:Object
+		// }
+
+	},
+
+	data: function data() {
+		return {
+			showModal: false,
+			'name': "",
+
+			csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+
+		};
+	},
+
+	mounted: function mounted() {
+
+		console.log('My Institute component is mounted after great deal of effort');
+	},
+
+
+	methods: {
+		formSubmit: function formSubmit() {
+
+			axios.post('/standards', {
+
+				'name': this.name
+
+			});
+
+			this.closeModal();
+		},
+		closeModal: function closeModal() {
+
+			this.showModal = false;
+		},
+		openModal: function openModal() {
+
+			this.showModal = true;
+		}
+	}
+
+});
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "a",
+      {
+        staticClass: "button is-link is-rounded",
+        on: {
+          click: function($event) {
+            _vm.openModal()
+          }
+        }
+      },
+      [_vm._v("Add Standard")]
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _vm.showModal
+      ? _c("div", { staticClass: "modal is-active", attrs: { id: "modal" } }, [
+          _c("div", { staticClass: "modal-background" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-card" }, [
+            _c("header", { staticClass: "modal-card-head" }, [
+              _c("p", { staticClass: "modal-card-title" }, [
+                _vm._v("Add Standard")
+              ]),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "delete",
+                attrs: { "aria-label": "close" },
+                on: {
+                  click: function($event) {
+                    _vm.closeModal()
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("section", { staticClass: "modal-card-body" }, [
+              _c(
+                "form",
+                {
+                  attrs: { method: "POST", action: "/standards" },
+                  on: { submit: _vm.formSubmit }
+                },
+                [
+                  _c("input", {
+                    attrs: { type: "hidden", name: "_token" },
+                    domProps: { value: _vm.csrf }
+                  }),
+                  _vm._v(" "),
+                  _c("label", [_vm._v(" Name:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.name,
+                        expression: "name"
+                      }
+                    ],
+                    attrs: { id: "name", type: "text", name: "name" },
+                    domProps: { value: _vm.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.name = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("footer", { staticClass: "modal-card-foot" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "button is-success",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Save changes")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "button",
+                        on: {
+                          click: function($event) {
+                            _vm.closeModal()
+                          }
+                        }
+                      },
+                      [_vm._v("Cancel")]
+                    )
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-9986e4b0", module.exports)
+  }
+}
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(65)
+/* template */
+var __vue_template__ = __webpack_require__(66)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/ModifyStandard.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-27836942", Component.options)
+  } else {
+    hotAPI.reload("data-v-27836942", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: {
+		standard: Array
+
+	},
+
+	data: function data() {
+		return {
+			showform: false,
+			standardName: "",
+			standardId: "",
+			showModal: false,
+			csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+
+		};
+	},
+
+
+	methods: {
+		modifyStandard: function modifyStandard(selected) {
+			var _this = this;
+
+			this.standard.forEach(function (names) {
+
+				if (selected.name == names.name) {
+
+					_this.standardName = selected.name;
+					_this.standardId = selected.id;
+				}
+			});
+
+			this.showform = true;
+			this.showModal = true;
+		},
+		closeModal: function closeModal() {
+
+			this.showModal = false;
+		},
+		openModal: function openModal() {
+
+			this.showModal = true;
+		},
+		submitModifyStdForm: function submitModifyStdForm() {
+
+			axios.post(this.urlValue, {
+
+				'name': this.standardName,
+				'id': this.standardId
+
+			});
+		}
+	},
+
+	computed: {
+
+		urlValue: function urlValue() {
+
+			// return '/institute/'+ this.instituteId;
+
+			return '/standards/' + this.standardId;
+		}
+	}
+});
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("hr"),
+      _vm._v(" "),
+      _vm.showModal
+        ? _c(
+            "div",
+            { staticClass: "modal is-active", attrs: { id: "modal" } },
+            [
+              _c("div", { staticClass: "modal-background" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-card" }, [
+                _c("header", { staticClass: "modal-card-head" }, [
+                  _c("p", { staticClass: "modal-card-title" }, [
+                    _vm._v("Modify Standard")
+                  ]),
+                  _vm._v(" "),
+                  _c("button", {
+                    staticClass: "delete",
+                    attrs: { "aria-label": "close" },
+                    on: {
+                      click: function($event) {
+                        _vm.closeModal()
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("section", { staticClass: "modal-card-body" }, [
+                  _vm.showform
+                    ? _c(
+                        "form",
+                        {
+                          attrs: { method: "POST", action: _vm.urlValue },
+                          on: { submit: _vm.submitModifyStdForm }
+                        },
+                        [
+                          _c("input", {
+                            attrs: { type: "hidden", name: "_token" },
+                            domProps: { value: _vm.csrf }
+                          }),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.standardName,
+                                expression: "standardName"
+                              }
+                            ],
+                            attrs: { type: "text", name: "name" },
+                            domProps: { value: _vm.standardName },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.standardName = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.standardId,
+                                expression: "standardId"
+                              }
+                            ],
+                            attrs: { type: "text", name: "id", disabled: true },
+                            domProps: { value: _vm.standardId },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.standardId = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("footer", { staticClass: "modal-card-foot" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "button is-success",
+                                attrs: { type: "submit" }
+                              },
+                              [_vm._v("Save changes")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "button",
+                                on: {
+                                  click: function($event) {
+                                    _vm.closeModal()
+                                  }
+                                }
+                              },
+                              [_vm._v("Cancel")]
+                            )
+                          ])
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.standard, function(onestandard) {
+        return _c("li", [
+          _c(
+            "a",
+            {
+              on: {
+                click: function($event) {
+                  _vm.modifyStandard(onestandard)
+                }
+              }
+            },
+            [_vm._v(" " + _vm._s(onestandard.name) + " ")]
+          )
+        ])
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-27836942", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

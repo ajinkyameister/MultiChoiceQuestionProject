@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Standard;
 
 class StandardController extends Controller
 {
@@ -32,9 +33,23 @@ class StandardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Standard $standard)
     {
-        //
+        
+
+         $StandardExists = Standard::where('name', '=', $request->name)->get();
+
+        
+        if(count($StandardExists)<1){
+
+
+            $standard->create(['name'=>$request->name,]);
+
+        }
+
+        $standards = $standard->all();
+
+        return view ('listStandards',compact('standards'));
     }
 
     /**
@@ -43,9 +58,13 @@ class StandardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Standard $standard)
     {
-        //
+        $standards = $standard->getAllInstitutes();
+
+        
+        return view('listStandards',compact('standards'));
+
     }
 
     /**
@@ -66,9 +85,14 @@ class StandardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Standard $standard)
     {
-        //
+        $standard->where('id',$request->id)->update(['name'=>$request->name]);
+
+        $standards = $standard->all();
+
+        return view('listStandards',compact('standards'));
+       
     }
 
     /**

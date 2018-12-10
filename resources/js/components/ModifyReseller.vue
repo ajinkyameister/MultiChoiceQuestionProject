@@ -32,9 +32,7 @@
 
 
 						<input type="text" name="id" v-model="resellerId" :disabled="true">
-
-
-
+						
 						<footer class="modal-card-foot">
 							<button type="submit" class="button is-success" >Save changes</button>
 							<button class="button" @click="closeModal()">Cancel</button>
