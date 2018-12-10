@@ -48688,7 +48688,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			showform: false,
 			instituteName: "",
-			// modifyMe:false,
+			idInstitute: "",
 			showModal: false,
 			csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
@@ -48705,6 +48705,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				if (selected.name == names.name) {
 
 					_this.instituteName = selected.name;
+					_this.idInstitute = selected.id;
 				}
 			});
 
@@ -48721,12 +48722,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		submitModifyInstiForm: function submitModifyInstiForm() {
 
-			// this.modifyMe=true;
+			// alert(this.idInstitute);
 
-			axios.post('/institutes', {
+			axios.put('/institutes/' + this.idInstitute, {
 
 				'name': this.instituteName
-				// 'modify':this.modifyMe,
+
 			});
 
 			this.closeModal();

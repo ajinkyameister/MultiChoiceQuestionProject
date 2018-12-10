@@ -79,5 +79,11 @@ Route::post('/institutes','InstituteController@store');
 
 Route::get('/institutes/show','InstituteController@show');
 
-Route::get('/institutes/{institute}','InstituteController@edit');
+// Route::get('/institutes/{institute}','InstituteController@edit');
+
+Route::put('/institutes/{institute}', function(){
+
+
+  return "hello put request working";
+});
   

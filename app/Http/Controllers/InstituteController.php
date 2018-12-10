@@ -37,18 +37,16 @@ class InstituteController extends Controller
     public function store(Request $request, Institute $institute)
     {
     	
-       
-
         $instituteExists = Institute::where('name', '=', $request->name)->get();
 
     	
     	if(count($instituteExists)<1){
-            
 
-    		$institute->create([ 'name'=>$request->name,]);
-    	}
 
-        
+    		$institute->create(['name'=>$request->name,]);
+
+        }
+
     	return redirect('/institutes/show');
     }
 

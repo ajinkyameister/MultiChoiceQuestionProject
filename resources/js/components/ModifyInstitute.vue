@@ -56,7 +56,7 @@
 				return {
 					showform:false,
 					instituteName:"",
-					// modifyMe:false,
+					idInstitute:"",
 					showModal:false,
 					csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
 
@@ -73,11 +73,11 @@
 						if(selected.name == names.name){
 
 							this.instituteName= selected.name;	
-
+							this.idInstitute = selected.id;
 						}
 
 					});
-
+					
 					this.showform = true;
 					this.showModal=true;			
 				},
@@ -95,12 +95,12 @@
 
 				submitModifyInstiForm(){
 
-					// this.modifyMe=true;
+					// alert(this.idInstitute);
 
-					axios.post('/institutes',{
+					axios.put('/institutes/'+ this.idInstitute,{
 
 						'name': this.instituteName,
-						// 'modify':this.modifyMe,
+						
 					});
 
 					this.closeModal();
