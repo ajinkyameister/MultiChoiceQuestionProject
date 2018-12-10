@@ -1,9 +1,6 @@
 <template>
 	<div>
 		
-			<!--  <h1>
-				<a @click="sayhi()" > Hello World </a>
-			</h1 -->
 			<hr>
 
 			<div id="modal"class="modal is-active" v-if="showModal">
@@ -16,11 +13,13 @@
 
 					<section class="modal-card-body">
 
-						<form v-if="showform" method="POST"  @submit="submitModifyInstiForm">
+						<form v-if="showform"  method="POST" :action="urlValue" @submit="submitModifyInstiForm">
 
 							<input type="hidden" name="_token" :value="csrf">
 
 							<input type="text" name="name" v-model="instituteName">
+
+							<input type="text" name="id" v-model="instituteId">
 
 							<footer class="modal-card-foot">
 								<button type="submit" class="button is-success" >Save changes</button>
@@ -56,7 +55,7 @@
 				return {
 					showform:false,
 					instituteName:"",
-					idInstitute:"",
+					instituteId:"",
 					showModal:false,
 					csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
 
@@ -72,14 +71,17 @@
 
 						if(selected.name == names.name){
 
-							this.instituteName= selected.name;	
-							this.idInstitute = selected.id;
+							this.instituteName= selected.name;
+							this.instituteId = selected.id;	
+
+
 						}
 
 					});
 					
 					this.showform = true;
-					this.showModal=true;			
+					this.showModal=true;	
+
 				},
 
 				closeModal(){
@@ -95,17 +97,25 @@
 
 				submitModifyInstiForm(){
 
-					// alert(this.idInstitute);
-
-					axios.put('/institutes/'+ this.idInstitute,{
+					
+								
+					axios.post('/institutes/'+this.instituteId,{
 
 						'name': this.instituteName,
-						
+						'id':this.instituteId,
+
 					});
 
-					this.closeModal();
+					// this.closeModal();
 				}
 			},
+
+			computed:{
+
+				urlValue: function (){ 
+							return '/institutes/'+this.instituteId;
+							}
+			}
 		}	
 
 	</script>	

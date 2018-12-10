@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,6 +68,7 @@ Route::get('/resellers','ResellerController@show');
 
 Route::get('/users/{user}','ResellerController@edit');
 
+
 //-------------------------------Institute Routes------------------------------------------//
 
 Route::get('/institutes',function(){
@@ -81,9 +83,6 @@ Route::get('/institutes/show','InstituteController@show');
 
 // Route::get('/institutes/{institute}','InstituteController@edit');
 
-Route::put('/institutes/{institute}', function(){
-
-
-  return "hello put request working";
-});
   
+Route::post('/institutes/{institute}','InstituteController@edit')->name('modifyInstitutes');
+

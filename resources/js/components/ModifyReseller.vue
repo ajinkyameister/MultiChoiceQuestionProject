@@ -1,6 +1,5 @@
 <template>
 	<div>
-
 		<hr>
 		
 		<div id="modal"class="modal is-active" v-if="showModal">
@@ -28,6 +27,12 @@
 						
 						<label> PAN Card:</label>
 						<input type="text" name="name" v-model="pan_card"> <br> <br>
+
+
+						<footer class="modal-card-foot">
+							<button type="submit" class="button is-success" >Save changes</button>
+							<button class="button" @click="closeModal()">Cancel</button>
+						</footer>
 
 					</form>	
 
@@ -83,21 +88,19 @@
 					
 				});
 
-				// console.log(userName);	
+				
+
 				this.showform = true;
 				this.showModal = true;			
 			},
 			closeModal(){
 
 				this.showModal=false;
+				this.showform = false;
 			},
 			
-			openModal(){
-
-				this.showModal=true;
-
-			},
 			
+
 		}	
 	}	
 	

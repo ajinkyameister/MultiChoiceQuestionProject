@@ -14055,9 +14055,9 @@ window.Vue = __webpack_require__(37);
  */
 
 Vue.component('reseller', __webpack_require__(40));
-Vue.component('modifyreseller', __webpack_require__(43));
-Vue.component('institute', __webpack_require__(55));
-Vue.component('modifyinstitute', __webpack_require__(58));
+Vue.component('modifyreseller', __webpack_require__(55));
+Vue.component('institute', __webpack_require__(58));
+Vue.component('modifyinstitute', __webpack_require__(61));
 //-------------------------------------------------------------------------------------//
 
 Vue.component('example-component', __webpack_require__(46));
@@ -47784,369 +47784,9 @@ if (false) {
 }
 
 /***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(44)
-/* template */
-var __vue_template__ = __webpack_require__(45)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/ModifyReseller.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-669cd912", Component.options)
-  } else {
-    hotAPI.reload("data-v-669cd912", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-	props: {
-		reseller: Array
-
-	},
-
-	data: function data() {
-		return {
-			showform: false,
-			showModal: false,
-			userName: "",
-			address: "",
-			phone_number: "",
-			email: "",
-			pan_card: ""
-
-		};
-	},
-
-
-	methods: {
-		sayhi: function sayhi(selected) {
-			var _this = this;
-
-			this.reseller.forEach(function (names) {
-
-				if (selected.name == names.name) {
-
-					_this.userName = selected.name;
-					_this.address = selected.address;
-					_this.phone_number = selected.phone_number;
-					_this.email = selected.email;
-					_this.pan_card = selected.pan_card;
-				}
-			});
-
-			// console.log(userName);	
-			this.showform = true;
-			this.showModal = true;
-		},
-		closeModal: function closeModal() {
-
-			this.showModal = false;
-		},
-		openModal: function openModal() {
-
-			this.showModal = true;
-		}
-	}
-});
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("hr"),
-      _vm._v(" "),
-      _vm.showModal
-        ? _c(
-            "div",
-            { staticClass: "modal is-active", attrs: { id: "modal" } },
-            [
-              _c("div", { staticClass: "modal-background" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-card" }, [
-                _c("header", { staticClass: "modal-card-head" }, [
-                  _c("p", { staticClass: "modal-card-title" }, [
-                    _vm._v("Modify Reseller")
-                  ]),
-                  _vm._v(" "),
-                  _c("button", {
-                    staticClass: "delete",
-                    attrs: { "aria-label": "close" },
-                    on: {
-                      click: function($event) {
-                        _vm.closeModal()
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("section", { staticClass: "modal-card-body" }, [
-                  _vm.showform
-                    ? _c("form", [
-                        _c("label", [_vm._v(" Name:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.userName,
-                              expression: "userName"
-                            }
-                          ],
-                          attrs: { type: "text", name: "name" },
-                          domProps: { value: _vm.userName },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.userName = $event.target.value
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("label", [_vm._v(" Address:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.address,
-                              expression: "address"
-                            }
-                          ],
-                          attrs: { type: "text", name: "name" },
-                          domProps: { value: _vm.address },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.address = $event.target.value
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("label", [_vm._v(" Phone Number:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.phone_number,
-                              expression: "phone_number"
-                            }
-                          ],
-                          attrs: { type: "text", name: "name" },
-                          domProps: { value: _vm.phone_number },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.phone_number = $event.target.value
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("label", [_vm._v(" Email:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.email,
-                              expression: "email"
-                            }
-                          ],
-                          attrs: { type: "text", name: "name" },
-                          domProps: { value: _vm.email },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.email = $event.target.value
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("label", [_vm._v(" PAN Card:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.pan_card,
-                              expression: "pan_card"
-                            }
-                          ],
-                          attrs: { type: "text", name: "name" },
-                          domProps: { value: _vm.pan_card },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.pan_card = $event.target.value
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("br")
-                      ])
-                    : _vm._e()
-                ])
-              ])
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.reseller, function(onereseller) {
-        return _c("li", [
-          _c(
-            "a",
-            {
-              on: {
-                click: function($event) {
-                  _vm.sayhi(onereseller)
-                }
-              }
-            },
-            [_vm._v(" " + _vm._s(onereseller.name) + " ")]
-          )
-        ])
-      })
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-669cd912", module.exports)
-  }
-}
-
-/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -48331,6 +47971,394 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
+Component.options.__file = "resources/js/components/ModifyReseller.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-669cd912", Component.options)
+  } else {
+    hotAPI.reload("data-v-669cd912", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: {
+		reseller: Array
+
+	},
+
+	data: function data() {
+		return {
+			showform: false,
+			showModal: false,
+			userName: "",
+			address: "",
+			phone_number: "",
+			email: "",
+			pan_card: ""
+
+		};
+	},
+
+
+	methods: {
+		sayhi: function sayhi(selected) {
+			var _this = this;
+
+			this.reseller.forEach(function (names) {
+
+				if (selected.name == names.name) {
+
+					_this.userName = selected.name;
+					_this.address = selected.address;
+					_this.phone_number = selected.phone_number;
+					_this.email = selected.email;
+					_this.pan_card = selected.pan_card;
+				}
+			});
+
+			this.showform = true;
+			this.showModal = true;
+		},
+		closeModal: function closeModal() {
+
+			this.showModal = false;
+			this.showform = false;
+		}
+	}
+});
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("hr"),
+      _vm._v(" "),
+      _vm.showModal
+        ? _c(
+            "div",
+            { staticClass: "modal is-active", attrs: { id: "modal" } },
+            [
+              _c("div", { staticClass: "modal-background" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-card" }, [
+                _c("header", { staticClass: "modal-card-head" }, [
+                  _c("p", { staticClass: "modal-card-title" }, [
+                    _vm._v("Modify Reseller")
+                  ]),
+                  _vm._v(" "),
+                  _c("button", {
+                    staticClass: "delete",
+                    attrs: { "aria-label": "close" },
+                    on: {
+                      click: function($event) {
+                        _vm.closeModal()
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("section", { staticClass: "modal-card-body" }, [
+                  _vm.showform
+                    ? _c("form", [
+                        _c("label", [_vm._v(" Name:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.userName,
+                              expression: "userName"
+                            }
+                          ],
+                          attrs: { type: "text", name: "name" },
+                          domProps: { value: _vm.userName },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.userName = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("label", [_vm._v(" Address:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.address,
+                              expression: "address"
+                            }
+                          ],
+                          attrs: { type: "text", name: "name" },
+                          domProps: { value: _vm.address },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.address = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("label", [_vm._v(" Phone Number:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.phone_number,
+                              expression: "phone_number"
+                            }
+                          ],
+                          attrs: { type: "text", name: "name" },
+                          domProps: { value: _vm.phone_number },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.phone_number = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("label", [_vm._v(" Email:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.email,
+                              expression: "email"
+                            }
+                          ],
+                          attrs: { type: "text", name: "name" },
+                          domProps: { value: _vm.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.email = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("label", [_vm._v(" PAN Card:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.pan_card,
+                              expression: "pan_card"
+                            }
+                          ],
+                          attrs: { type: "text", name: "name" },
+                          domProps: { value: _vm.pan_card },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.pan_card = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("footer", { staticClass: "modal-card-foot" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "button is-success",
+                              attrs: { type: "submit" }
+                            },
+                            [_vm._v("Save changes")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "button",
+                              on: {
+                                click: function($event) {
+                                  _vm.closeModal()
+                                }
+                              }
+                            },
+                            [_vm._v("Cancel")]
+                          )
+                        ])
+                      ])
+                    : _vm._e()
+                ])
+              ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.reseller, function(onereseller) {
+        return _c("li", [
+          _c(
+            "a",
+            {
+              on: {
+                click: function($event) {
+                  _vm.sayhi(onereseller)
+                }
+              }
+            },
+            [_vm._v(" " + _vm._s(onereseller.name) + " ")]
+          )
+        ])
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-669cd912", module.exports)
+  }
+}
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(59)
+/* template */
+var __vue_template__ = __webpack_require__(60)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
 Component.options.__file = "resources/js/components/Institute.vue"
 
 /* hot reload */
@@ -48353,7 +48381,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 56 */
+/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48450,7 +48478,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 57 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48578,15 +48606,15 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(59)
+var __vue_script__ = __webpack_require__(62)
 /* template */
-var __vue_template__ = __webpack_require__(60)
+var __vue_template__ = __webpack_require__(63)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48625,12 +48653,11 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -48688,7 +48715,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			showform: false,
 			instituteName: "",
+<<<<<<< HEAD
 			idInstitute: "",
+=======
+			instituteId: "",
+>>>>>>> 45ce6787cf0ad6752acd75e389701b7ece2c0ced
 			showModal: false,
 			csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
@@ -48705,7 +48736,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				if (selected.name == names.name) {
 
 					_this.instituteName = selected.name;
+<<<<<<< HEAD
 					_this.idInstitute = selected.id;
+=======
+					_this.instituteId = selected.id;
+>>>>>>> 45ce6787cf0ad6752acd75e389701b7ece2c0ced
 				}
 			});
 
@@ -48722,21 +48757,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		submitModifyInstiForm: function submitModifyInstiForm() {
 
+<<<<<<< HEAD
 			// alert(this.idInstitute);
 
 			axios.put('/institutes/' + this.idInstitute, {
 
 				'name': this.instituteName
 
+=======
+			axios.post('/institutes/' + this.instituteId, {
+
+				'name': this.instituteName,
+				'id': this.instituteId
+>>>>>>> 45ce6787cf0ad6752acd75e389701b7ece2c0ced
 			});
 
-			this.closeModal();
+			// this.closeModal();
+		}
+	},
+
+	computed: {
+
+		urlValue: function urlValue() {
+			return '/institutes/' + this.instituteId;
 		}
 	}
 });
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48777,7 +48826,7 @@ var render = function() {
                     ? _c(
                         "form",
                         {
-                          attrs: { method: "POST" },
+                          attrs: { method: "POST", action: _vm.urlValue },
                           on: { submit: _vm.submitModifyInstiForm }
                         },
                         [
@@ -48803,6 +48852,27 @@ var render = function() {
                                   return
                                 }
                                 _vm.instituteName = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.instituteId,
+                                expression: "instituteId"
+                              }
+                            ],
+                            attrs: { type: "text", name: "id" },
+                            domProps: { value: _vm.instituteId },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.instituteId = $event.target.value
                               }
                             }
                           }),
