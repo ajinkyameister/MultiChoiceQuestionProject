@@ -76,7 +76,12 @@ class InstituteController extends Controller
     {
     	// return view('modifyInstituteForm',compact('institute'));
 
-        return "Hello Edit method in controller entered";
+       $institute->where('id',$request->id)->update(['name'=>$request->name]);
+
+       $institutes = $institute->all();
+
+        return view('listInstitutes',compact('institutes'));
+       
     }
 
     /**

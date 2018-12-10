@@ -6,12 +6,12 @@
 			
 	<div id="app">		
 
-			{{-- @foreach($institutes as $institute) --}}
+		<!-- 	@foreach($institutes as $institute)
 
 
-				{{-- <li> <a href=institutes/{{$institute->id}}> {{$institute->name}}</a> </li> --}}
+				<li> <a href=institutes/{{$institute->id}}> {{$institute->name}}</a> </li> 
 
-			{{-- @endforeach	 --}}
+			 @endforeach	 --> 
 			
 			<modifyinstitute :institute="{{  json_encode($institutes) }}"> </modifyinstitute>
 

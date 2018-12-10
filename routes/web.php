@@ -66,7 +66,7 @@ Route::post('/resellers','ResellerController@store');//
 
 Route::get('/resellers','ResellerController@show');
 
-Route::get('/users/{user}','ResellerController@edit');
+Route::post('/users/{user}','ResellerController@update');
 
 
 //-------------------------------Institute Routes------------------------------------------//

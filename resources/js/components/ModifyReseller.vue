@@ -11,10 +11,12 @@
 				</header>
 				<section class="modal-card-body">
 
-					<form v-if="showform">
+					<form v-if="showform" method="POST" :action="urlValue" @submit="submitModifyResellerForm">
 
 						<label> Name:</label>
 						<input type="text" name="name" v-model="userName"> <br> <br>
+
+						<input type="hidden" name="_token" :value="csrf">
 
 						<label> Address:</label>
 						<input type="text" name="name" v-model="address"> <br> <br>
@@ -27,6 +29,10 @@
 						
 						<label> PAN Card:</label>
 						<input type="text" name="name" v-model="pan_card"> <br> <br>
+
+
+						<input type="text" name="id" v-model="resellerId" :disabled="true">
+
 
 
 						<footer class="modal-card-foot">
@@ -66,6 +72,8 @@
 				phone_number:"",
 				email:"",
 				pan_card:"",
+				resellerId:"",
+				csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
 
 			}
 
@@ -84,6 +92,7 @@
 						this.phone_number = selected.phone_number;
 						this.email = selected.email;
 						this.pan_card = selected.pan_card;
+						this.resellerId = selected.id;
 					}
 					
 				});
@@ -93,16 +102,42 @@
 				this.showform = true;
 				this.showModal = true;			
 			},
+
 			closeModal(){
 
 				this.showModal=false;
 				this.showform = false;
+			},	
+
+			submitModifyResellerForm(){
+
+				alert(this.address);
+
+				axios.post(this.urlValue,{
+
+						'name': this.userName,
+						'address':this.address ,
+						'phone_number':this.phone_number,
+						'email':this.email,
+						'pan_card':this.pan_card,
+						'id':this.resellerId,
+
+					});
+				}
 			},
-			
-			
+
+			computed:{
+
+				urlValue: function (){ 
+							
+								// return '/institute/'+ this.instituteId;
+
+								return '/users/'+ this.resellerId;
+				}
+			}
 
 		}	
-	}	
+		
 	
 
 </script>	

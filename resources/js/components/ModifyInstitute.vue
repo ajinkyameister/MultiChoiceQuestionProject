@@ -19,7 +19,7 @@
 
 							<input type="text" name="name" v-model="instituteName">
 
-							<input type="text" name="id" v-model="instituteId">
+							<input type="text" name="id" v-model="instituteId" :disabled="true">
 
 							<footer class="modal-card-foot">
 								<button type="submit" class="button is-success" >Save changes</button>
@@ -33,6 +33,7 @@
 				</div> 
 
 			</div>
+
 			<li v-for="oneinstitute in institute"> 
 
 				<a @click="modifyInstitute(oneinstitute)"> {{oneinstitute.name}} </a> 
@@ -73,8 +74,6 @@
 
 							this.instituteName= selected.name;
 							this.instituteId = selected.id;	
-
-
 						}
 
 					});
@@ -97,24 +96,24 @@
 
 				submitModifyInstiForm(){
 
-					
-								
-					axios.post('/institutes/'+this.instituteId,{
+
+					axios.post(this.urlValue,{
 
 						'name': this.instituteName,
 						'id':this.instituteId,
 
 					});
-
-					// this.closeModal();
 				}
 			},
 
 			computed:{
 
 				urlValue: function (){ 
-							return '/institutes/'+this.instituteId;
-							}
+							
+								// return '/institute/'+ this.instituteId;
+
+								return '/institutes/'+ this.instituteId;
+				}
 			}
 		}	
 

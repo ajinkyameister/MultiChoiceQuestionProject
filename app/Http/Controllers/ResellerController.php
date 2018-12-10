@@ -94,9 +94,22 @@ class ResellerController extends Controller
      * @param  \App\Reseller  $reseller
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, User $user)
     {
-        //
+    
+
+         $user->where('id',$request->id)->update([
+                                                    'name'=>$request->name,
+                                                    'address'=>$request->address,
+                                                    'phone_number'=>$request->phone_number,
+                                                    'email'=>$request->email,
+                                                    'pan_card'=>$request->pan_card,
+                                                ]);
+
+       $resellers= $user->where('role','reseller')->get();
+
+       return view('listresellers',compact('resellers'));
+       
     }
 
     /**
