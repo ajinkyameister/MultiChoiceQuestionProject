@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Standard;
 
 class ExamController extends Controller
 {
@@ -21,9 +22,11 @@ class ExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Standard $standard)
     {
-        //
+       
+        $standards = $standard->all();
+        return view('createExam',compact('standards'));
     }
 
     /**
