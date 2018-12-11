@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Standard;
+use App\Exam;
 
 class ExamController extends Controller
 {
@@ -21,9 +23,11 @@ class ExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Standard $standard)
     {
-        //
+       
+        $standards = $standard->all();
+        return view('createExam',compact('standards'));
     }
 
     /**
@@ -32,9 +36,25 @@ class ExamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Exam $exam)
     {
-        //
+              
+        dd($request->name);
+        $ExamExists = Exam::where('name', '=', $request->name)->get();
+
+        
+        if(count($ExamExists)<1){
+
+
+            $exam->create(['name'=>$request->name,
+
+                            'standard_id' =>$request->standard_id]);
+
+        }
+
+        $exams = $exam->all();
+
+        return view ('listExams',compact('exams'));
     }
 
     /**

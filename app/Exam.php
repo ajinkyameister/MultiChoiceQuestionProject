@@ -9,7 +9,7 @@ use App\Standard;
 class Exam extends Model
 {
 	protected $fillable = [
-        'stadnard_id', 'name',
+        'standard_id', 'name',
     ];
 
 	public function subjects(){

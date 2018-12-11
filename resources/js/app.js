@@ -23,7 +23,7 @@ Vue.component('institute', require('./components/Institute.vue'));
 Vue.component('modifyinstitute', require('./components/ModifyInstitute.vue'));
 Vue.component('standard', require('./components/Standard.vue'));
 Vue.component('modifystandard', require('./components/ModifyStandard.vue'));
-
+Vue.component('exams', require('./components/Exam.vue'));
 //-------------------------------------------------------------------------------------//
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
