@@ -49694,6 +49694,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49711,8 +49714,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			showModal: false,
 			'name': "",
 			'standardId': "",
-			'standard_id': "",
-			// 'examName':"",			
+
 			csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
 		};
@@ -49744,8 +49746,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			axios.post('/exams', {
 
 				'name': this.name,
+
+				// 'standard_id':this.standardId
+
 				'standard_id': this.standardId
 
+			}).then(function (response) {
+				return console.log(response.data);
 			});
 
 			this.closeModal();
@@ -49857,23 +49864,10 @@ var render = function() {
                       _c("label", [_vm._v(" Exam Name:")]),
                       _vm._v(" "),
                       _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.examName,
-                            expression: "examName"
-                          }
-                        ],
-                        attrs: { id: "name", type: "text", name: "exam_name" },
-                        domProps: { value: _vm.examName },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.examName = $event.target.value
-                          }
+                        attrs: {
+                          id: "exam_name",
+                          type: "text",
+                          name: "exam_name"
                         }
                       }),
                       _vm._v(" "),
@@ -49881,7 +49875,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("br"),
                       _vm._v(" "),
-                      _c("label", [_vm._v(" Name:")]),
+                      _c("label", [_vm._v(" id:")]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -49893,7 +49887,7 @@ var render = function() {
                           }
                         ],
                         attrs: {
-                          id: "name",
+                          id: "standard_id",
                           type: "text",
                           name: "standard_id",
                           disabled: true
@@ -49910,8 +49904,32 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("br"),
-                      _vm._v(" "),
                       _c("br"),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.standardId,
+                            expression: "standardId"
+                          }
+                        ],
+                        attrs: {
+                          id: "standard_id",
+                          type: "hidden",
+                          name: "standard_id"
+                        },
+                        domProps: { value: _vm.standardId },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.standardId = $event.target.value
+                          }
+                        }
+                      }),
                       _vm._v(" "),
                       _c("footer", { staticClass: "modal-card-foot" }, [
                         _c(

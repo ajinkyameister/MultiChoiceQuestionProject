@@ -38,18 +38,21 @@ class ExamController extends Controller
      */
     public function store(Request $request, Exam $exam)
     {
-              
-        dd($request->name);
-        $ExamExists = Exam::where('name', '=', $request->name)->get();
+        // dd($request->standard_id);
+
+        $ExamExists = Exam::where('name', '=', $request->exam_name)
+                            ->where('standard_id',$request->standard_id)
+                            ->get();
 
         
+
         if(count($ExamExists)<1){
 
+            $exam->create(['name'=>$request->exam_name,
+                           'standard_id' => $request->standard_id]);
+        }else{
 
-            $exam->create(['name'=>$request->name,
-
-                            'standard_id' =>$request->standard_id]);
-
+            return " test exists";
         }
 
         $exams = $exam->all();

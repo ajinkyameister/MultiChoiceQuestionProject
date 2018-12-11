@@ -21,21 +21,24 @@
 
 					<form method="POST" action="/exams" @submit="formSubmit">
 						
-						<input type="hidden" name="_token" :value="csrf">
+					<input type="hidden" name="_token" :value="csrf">
 
-						<label> Standard:</label>
-						<input id="name"type="text" name="name"  v-model="name"> <br> <br>		
+					<label> Standard:</label>
+					<input id="name"type="text" name="name"  v-model="name"> <br> <br>		
 
-						<label> Exam Name:</label>
-						<input id="name"type="text" name="exam_name" v-model="examName"> <br> <br>		
+					<label> Exam Name:</label>
+					<input id="exam_name" type="text" name="exam_name"> <br> <br>		
 
-						<label> Name:</label>
-						<input id="name"type="text" name="standard_id"  v-model="standardId" :disabled="true" > <br> <br>
+					<label> id:</label>
+					<input id="standard_id" type="text" name="standard_id" v-model="standardId" :disabled ="true"> 
+					<br><br>
 
-						<footer class="modal-card-foot">
-							<button type="submit" class="button is-success" >Save changes</button>
-							<button class="button" @click="closeModal()">Cancel</button>
-						</footer>
+					<input id="standard_id" type="hidden" name="standard_id" v-model="standardId"> 
+
+					<footer class="modal-card-foot">
+						<button type="submit" class="button is-success" >Save changes</button>
+						<button class="button" @click="closeModal()">Cancel</button>
+					</footer>
 
 					</form>	
 				</section>	
@@ -70,8 +73,7 @@
 				showModal:false,
 				'name':"",	
 				'standardId':"",
-				'standard_id':"",	
-				// 'examName':"",			
+				
 				csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
 
 			}
@@ -106,9 +108,12 @@
 				axios.post('/exams',{
 					
 					'name':this.name,
-					'standard_id':this.standardId,				
 
-				});
+					// 'standard_id':this.standardId
+
+					'standard_id':this.standardId				
+
+				}).then(response=>console.log(response.data));
 
 				this.closeModal();
 
