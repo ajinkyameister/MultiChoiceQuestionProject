@@ -105,3 +105,5 @@ Route::get('/standard/show','StandardController@show');
 
   
 Route::post('/standards/{standard}','StandardController@update')->name('modifystandard');
+
+
