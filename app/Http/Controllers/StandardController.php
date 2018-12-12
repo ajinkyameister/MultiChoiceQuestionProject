@@ -60,9 +60,9 @@ class StandardController extends Controller
      */
     public function show(Standard $standard)
     {
-        $standards = $standard->getAllInstitutes();
+        // $standards = $standard->getAllInstitutes();
 
-        
+        $standards = $standard->all();
         return view('listStandards',compact('standards'));
 
     }

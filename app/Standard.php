@@ -29,7 +29,10 @@ class Standard extends Model
 
     }
     
-    
+    // public function getAllInstitutes(){
+
+        
+    // }
     
     
 }

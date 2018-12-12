@@ -1,7 +1,7 @@
 <template>
 
 	<div>
-		<a class="button is-link is-rounded" @click="openModal()">Add Exam</a> <br> <br>
+		<a class="button is-link is-rounded" @click="openModal()">Show Exams Under</a> <br> <br>
 		
 
 
@@ -19,24 +19,26 @@
 
 				<section class="modal-card-body">
 
-					<form method="POST" action="/exams" @submit="formSubmit">
-						
+					<!-- <form method="POST" action="/exams/show" @submit="formSubmit"> -->
+
+					<form method="POST" action="/exams/show" >
+
 					<input type="hidden" name="_token" :value="csrf">
 
 					<label> Standard:</label>
 					<input id="name"type="text" name="name"  v-model="name"> <br> <br>		
 
-					<label> Exam Name:</label>
+					<!-- <label> Exam Name:</label>
 					<input id="exam_name" type="text" name="exam_name"> <br> <br>		
 
 					<label> id:</label>
 					<input id="standard_id" type="text" name="standard_id" v-model="standardId" :disabled ="true"> 
 					<br><br>
 
-					<input id="standard_id" type="hidden" name="standard_id" v-model="standardId"> 
+					<input id="standard_id" type="hidden" name="standard_id" v-model="standardId">  -->
 
 					<footer class="modal-card-foot">
-						<button type="submit" class="button is-success" >Save changes</button>
+						<button type="submit" class="button is-success" >Submit</button>
 						<button class="button" @click="closeModal()">Cancel</button>
 					</footer>
 
@@ -46,11 +48,11 @@
 
 		</div>
 
-		<li v-for="onestandard in standard">
+		<!-- <li v-for="onestandard in standard">
 
 			<a @click="selectStandard(onestandard)"> {{onestandard.name}} </a>
 
-		</li>	
+		</li> -->	
 
 	</div>
 </template>

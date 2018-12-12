@@ -99,7 +99,7 @@ Route::get('/standards',function(){
 
 Route::post('/standards','StandardController@store');
 
-Route::get('/standard/show','StandardController@show');
+Route::get('/standards/show','StandardController@show');
 
 // Route::get('/institutes/{institute}','InstituteController@edit');
   
@@ -109,5 +109,9 @@ Route::post('/standards/{standard}','StandardController@update')->name('modifyst
 
 Route::get('/exams','ExamController@create');
 
+
+
 Route::post('/exams','ExamController@store');
+
+Route::post('/exams/show','ExamController@show');
 

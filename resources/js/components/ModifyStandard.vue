@@ -10,6 +10,7 @@
 						<p class="modal-card-title">Modify Standard</p>
 						<button class="delete" aria-label="close" @click="closeModal()"></button>
 					</header>
+					
 
 					<section class="modal-card-body">
 
@@ -24,6 +25,13 @@
 							<footer class="modal-card-foot">
 								<button type="submit" class="button is-success" >Save changes</button>
 								<button class="button" @click="closeModal()">Cancel</button>
+							</footer>
+								<header class="modal-card-head">
+									<p class="modal-card-title">Or Create an Exam </p>
+								</header>		
+
+							<footer class="modal-card-foot">
+								<a class="button is-link is-rounded" href="/exams" >Create An Exam </a> <br>
 							</footer>
 
 						</form>
