@@ -40,9 +40,11 @@ class ExamController extends Controller
     {
         // dd($request->standard_id);
 
-        $ExamExists = Exam::where('name', '=', $request->exam_name)
-                            ->where('standard_id',$request->standard_id)
-                            ->get();
+       $ExamExists= $exam->checkIfExamExists($request->name, $request->standard_id);
+
+        // $ExamExists = Exam::where('name', '=', $request->exam_name)
+        //                     ->where('standard_id',$request->standard_id)
+        //                     ->get();
 
         if(count($ExamExists)<1){
 
@@ -79,7 +81,7 @@ class ExamController extends Controller
     {
         dd($request->name); 
 
-        
+
         // $exams = $exam->where('standard_id',$request->standard_id)->get();
 
         // $standardName = $standard->where('id',$request->standard_id)->pluck('name');

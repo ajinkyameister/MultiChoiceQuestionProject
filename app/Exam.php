@@ -21,6 +21,14 @@ class Exam extends Model
 		return $this->belongsTo(Standard::class);
 	}
 	
+	public function checkIfExamExists($examName, $standardId){
+
+		return Exam::where('name', '=', $examName)
+                            ->where('standard_id',$standardId)
+                            ->get();
+
+	}
+	
 	
 	
 }
