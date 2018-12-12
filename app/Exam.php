@@ -20,13 +20,28 @@ class Exam extends Model
 		
 		return $this->belongsTo(Standard::class);
 	}
-	
-	public function checkIfExamExists($examName, $standardId){
+
+	protected function checkIfExamExists($examName, $standardId){
 
 		return Exam::where('name', '=', $examName)
                             ->where('standard_id',$standardId)
                             ->get();
 
+	}
+	 public function createIfDoesNotExist($examName,$standardId){
+
+	 		$ExamExists = $this->checkIfExamExists($examName,$standardId);
+			 
+			 if(count($ExamExists)<1){
+
+            $this->create(['name'=>$examName,
+                           'standard_id' => $standardId]);
+
+        }else{
+
+            return " test exists";
+        }
+		
 	}
 	
 	

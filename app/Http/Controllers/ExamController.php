@@ -40,21 +40,22 @@ class ExamController extends Controller
     {
         // dd($request->standard_id);
 
-       $ExamExists= $exam->checkIfExamExists($request->name, $request->standard_id);
+       // $ExamExists= $exam->checkIfExamExists($request->name, $request->standard_id);
 
         // $ExamExists = Exam::where('name', '=', $request->exam_name)
         //                     ->where('standard_id',$request->standard_id)
         //                     ->get();
 
-        if(count($ExamExists)<1){
+        $exam->createIfDoesNotExist($request->exam_name,$request->standard_id);
+                    // if(count($ExamExists)<1){
 
-            $exam->create(['name'=>$request->exam_name,
-                           'standard_id' => $request->standard_id]);
+                    //     $exam->create(['name'=>$request->exam_name,
+                    //                    'standard_id' => $request->standard_id]);
 
-        }else{
+                    // }else{
 
-            return " test exists";
-        }
+                    //     return " test exists";
+                    // }
 
         // $exams = $exam->all();
         $exams = $exam->where('standard_id',$request->standard_id)->get();
