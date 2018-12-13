@@ -23,11 +23,12 @@ class ExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Standard $standard)
+    public function create(Standard $standard, Exam $exam)
     {
        
         $standards = $standard->all();
-        return view('createExam',compact('standards'));
+        $exams = $exam->all();
+        return view('createExam',compact('standards','exams'));
     }
 
     /**
@@ -38,37 +39,14 @@ class ExamController extends Controller
      */
     public function store(Request $request, Exam $exam, Standard $standard)
     {
-        // dd($request->standard_id);
-
-       // $ExamExists= $exam->checkIfExamExists($request->name, $request->standard_id);
-
-        // $ExamExists = Exam::where('name', '=', $request->exam_name)
-        //                     ->where('standard_id',$request->standard_id)
-        //                     ->get();
+        
 
         $exam->createIfDoesNotExist($request->exam_name,$request->standard_id);
-                    // if(count($ExamExists)<1){
-
-                    //     $exam->create(['name'=>$request->exam_name,
-                    //                    'standard_id' => $request->standard_id]);
-
-                    // }else{
-
-                    //     return " test exists";
-                    // }
-
-        // $exams = $exam->all();
+               
         $exams = $exam->where('standard_id',$request->standard_id)->get();
 
         $standardName = $standard->where('id',$request->standard_id)->pluck('name');
-
-    
-        $standards = $standard->all();
-
-        // $standardInfo= $standard->where('id',$request->standard_id)->get();
-
-        // dd($standardInfo);
-
+     
         return view ('listExams',compact('exams','standardName'));
     }
 
@@ -80,17 +58,12 @@ class ExamController extends Controller
      */
     public function show(Request $request, Exam $exam, Standard $standard)
     {
-        dd($request->name); 
+        
+        $standardId = $standard->where('name',$request->name)->pluck('id');
+       
+        $exams = $exam->where('standard_id',$standardId)->get();
 
-
-        // $exams = $exam->where('standard_id',$request->standard_id)->get();
-
-        // $standardName = $standard->where('id',$request->standard_id)->pluck('name');
-    
-        // $standards = $standard->all();
-
-
-        // return view ('listExams',compact('exams','standardName'));
+        return view ('listExams',compact('exams'));
     }
 
     /**

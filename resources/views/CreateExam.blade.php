@@ -15,10 +15,12 @@
 
 			@endforeach -->
 
+
+			
+
 			<p class="title is-1 is-spaced">List of Standards To Create An Exam</p>
 
 			<p class="title is-5 is-spaced">
-
 				<exams :standard= "{{  json_encode($standards) }}"> </exams>
 			</p>
 
@@ -26,7 +28,11 @@
 
 			
 
-			<show-exams-under-standard> </show-exams-under-standard>
+			<show-exams-under-standard :standard= "{{  json_encode($standards) }}"
+			 						   :exam="{{json_encode($exams)}}"> 	
+			</show-exams-under-standard>
 	</div>
+
+
 
 @endsection

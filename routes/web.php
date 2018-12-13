@@ -94,7 +94,6 @@ Route::post('/institutes/{institute}','InstituteController@edit')->name('modifyI
 Route::get('/standards',function(){
   return view('standard'); 
 
- 
 })->name('standard');
 
 Route::post('/standards','StandardController@store');
@@ -108,8 +107,6 @@ Route::post('/standards/{standard}','StandardController@update')->name('modifyst
 //-------------------------------Exam Routes------------------------------------------//
 
 Route::get('/exams','ExamController@create');
-
-
 
 Route::post('/exams','ExamController@store');
 
