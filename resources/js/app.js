@@ -25,6 +25,7 @@ Vue.component('standard', require('./components/Standard.vue'));
 Vue.component('modifystandard', require('./components/ModifyStandard.vue'));
 Vue.component('exams', require('./components/Exam.vue'));
 Vue.component('show-exams-under-standard',require('./components/listExamsUnderStandard.vue'));
+Vue.component('show-reseller',require('./components/showReseller.vue'));
 //-------------------------------------------------------------------------------------//
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));

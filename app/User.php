@@ -46,9 +46,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Test::class);
     }
 
-    public function getAllResellers(){
+    public static function getAllResellers(){
 
-        return $allResellers = $this->where('role','reseller')->get();
+        // return $allResellers = $this->where('role','reseller')->get();
+
+            return self::where('role','reseller')->get();
     }
     
 }

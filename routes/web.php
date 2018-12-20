@@ -15,15 +15,17 @@
   3 |--------------------------------------------------------------------------
   4 | Web Routes -  REQUEST TYPES : URL. This is basic REST resourcefull controller
   5 |--------------------------------------------------------------------------
-  6 |  List all Posts                       GET    /posts
-  7 |  Get a specific post                  GET    /posts/{id}
-  8 |  Display form to create post          GET    /posts/create
-  9 |  Submit form to database new post     POST   /posts
- 10 |  Edit a post                          GET    /posts/{id}/edit
- 11 |  Submit to db edited form post        PATCH  /posts/{id}
- 12 |  Delete a post                        DELETE /posts/{id}
+  6 |  List all Reseller                        GET    /resellers
+  7 |  Get a specific Reseller  SHOW            GET    /resellers/{id}
+  8 |  Display form to create Reseller          GET    /resellers/create
+  9 |  Submit form to database new Reselelr     POST   /resellers
+ 10 |  Edit a Reseller                          GET    /resellers/{id}/edit
+ 11 |  Submit to db edited form Reseller        PATCH  /resellers/{id}
+ 12 |  Delete a Reseller                        DELETE /resellers/{id}
  13 |
  14  */
+
+// /standard/{id}/exam/{82}/subject/{872}/
 
 
 Route::get('/', function () {
@@ -55,18 +57,25 @@ Route::get('/reseller',function(){
 
 //-------------------------------Reseller Routes------------------------------------------//
 
-Route::get('/reseller/create',function(){
 
-	return view('reseller_try');
-});
+
+Route::get('/resellers','ResellerController@index');
+Route::get('/resellers/create','ResellerController@create');
+Route::get('/resellers/{user}','ResellerController@show');
+Route::post('/resellers','ResellerController@store');
+Route::get('/resellers/edit/{user}','ResellerController@edit');
+Route::patch('/resellers/{user}','ResellerController@update');
+Route::delete('/resellers/{user}','ResellerController@destroy');
+
+// Route::get('/resellers/create',function(){
+
+// 	return view('reseller_try');
+// });
 
 // Route::post('/resellers','ResellerController@store');//
 
-Route::post('/resellers','ResellerController@store');//
-
-Route::get('/resellers','ResellerController@show');
-
-Route::post('/users/{user}','ResellerController@update');
+// Route::post('/resellers','ResellerController@store');//
+// Route::post('/users/{user}','ResellerController@update');
 
 
 //-------------------------------Institute Routes------------------------------------------//
