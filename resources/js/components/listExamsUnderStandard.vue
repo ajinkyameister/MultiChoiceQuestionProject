@@ -43,12 +43,9 @@
 			</div>
 
 		</div>
-
-		<li v-for="examlist in listExamsUnderStandard" v-text="examlist">
-
-			<a > {{}} </a>
-
-		</li>	
+		
+			<li v-for="examlist in listExamsUnderStandard"> {{examlist}}</li>	
+		
 	</div>
 </template>
 
@@ -74,8 +71,7 @@
 				showModal:false,
 				'name':"",	
 				'standardId':"",
-				'listExamsUnderStandard':[],
-				
+				'listExamsUnderStandard':[],				
 				csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
 			}
 		},
@@ -87,24 +83,7 @@
 
 		methods:{
 
-			selectStandard(selectedStandard){
-
-				this.standard.forEach(names=>{
-
-					if(selectedStandard.name == names.name){
-
-						this.standardId = selectedStandard.id;
-						this.name = selectedStandard.name;
-					}
-					console.log(names.name);
-				});
-
-				this.openModal();
-			},
-
 			formSubmit(){
-
-				// alert("hi");
 
 				this.standard.forEach(names=>{
 
@@ -115,7 +94,6 @@
 							if(exams.standard_id==names.id){
 
 								this.listExamsUnderStandard.push(exams.name);
-							
 							}
 						})
 					}
@@ -137,7 +115,6 @@
 
 			},
 		}
-
 	}
 
 </script>

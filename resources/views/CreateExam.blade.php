@@ -6,33 +6,32 @@
 
 	<div id="app">
 		
-		
-			<!-- @foreach($standards as $standard)
+			<form method="POST" action="/exams" >
 
-				<li>
-					<a> {{$standard->name}} </a>
-				</li>
+				{{csrf_field()}}
 
-			@endforeach -->
+				<label> Standard:</label>
+				<input id="standard_name" type="text" name="standard_name" value="{{$standard->name}}" > 
+				<br> <br>
+
+				<input id="standard_id" type="hidden" name="standard_id" value="{{$standard->id}}" > 
+
+				<label> Exam Name:</label>
+				<input id="exam_name" type="text" name="exam_name"> <br> <br>
+
+				<button type="submit" class="button is-success">Submit</button>
+				<button class="button" >Cancel</button>
+						
+			</form>	
 
 
-			
 
-			<p class="title is-1 is-spaced">List of Standards To Create An Exam</p>
 
-			<p class="title is-5 is-spaced">
-				<exams :standard= "{{  json_encode($standards) }}"> </exams>
-			</p>
 
-			<!-- <a class="button is-link is-rounded" href="/exams/show">Show Exams </a> -->
-
-			
-
-			<show-exams-under-standard :standard= "{{  json_encode($standards) }}"
-			 						   :exam="{{json_encode($exams)}}"> 	
-			</show-exams-under-standard>
 	</div>
 
 
+		
 
 @endsection
+	

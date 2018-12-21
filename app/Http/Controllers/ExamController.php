@@ -13,9 +13,11 @@ class ExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Standard $standard, Exam $exam)
     {
-        //
+        $exams = $exam->all();
+        $standards = $standard->all();
+        return view('listExams',compact('standards','exams')); 
     }
 
     /**
@@ -26,9 +28,8 @@ class ExamController extends Controller
     public function create(Standard $standard, Exam $exam)
     {
        
-        $standards = $standard->all();
-        $exams = $exam->all();
-        return view('createExam',compact('standards','exams'));
+       
+        return view('createExam',compact('standard','exams'));
     }
 
     /**
@@ -39,7 +40,8 @@ class ExamController extends Controller
      */
     public function store(Request $request, Exam $exam, Standard $standard)
     {
-        
+        // $standards = $standard->all();
+        // $exams = $exam->all();
 
         $exam->createIfDoesNotExist($request->exam_name,$request->standard_id);
                
@@ -47,7 +49,7 @@ class ExamController extends Controller
 
         $standardName = $standard->where('id',$request->standard_id)->pluck('name');
      
-        return view ('listExams',compact('exams','standardName'));
+        return redirect('exams');
     }
 
     /**
@@ -59,10 +61,11 @@ class ExamController extends Controller
     public function show(Request $request, Exam $exam, Standard $standard)
     {
         
-        $standardId = $standard->where('name',$request->name)->pluck('id');
+        // $standardId = $standard->where('name',$request->name)->pluck('id');
        
-        $exams = $exam->where('standard_id',$standardId)->get();
+        // $exams = $exam->where('standard_id',$standardId)->get();
 
+        $exams = $exam->all();
         return view ('listExams',compact('exams'));
     }
 

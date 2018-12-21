@@ -106,9 +106,12 @@ Route::post('/standards/{standard}','StandardController@update')->name('modifyst
 
 //-------------------------------Exam Routes------------------------------------------//
 
-Route::get('/exams','ExamController@create');
-
+Route::get('/exams','ExamController@index');
+Route::get('/standard/{standard}/exams/create','ExamController@create');
 Route::post('/exams','ExamController@store');
+Route::get('/exams/show','ExamController@show');
+Route::get('/exams/{exam}',function(){
 
-Route::post('/exams/show','ExamController@show');
+  dd("hello exam is working now with great effort");
 
+});
