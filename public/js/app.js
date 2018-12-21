@@ -49574,9 +49574,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49977,17 +49974,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
 	props: {
 		standard: {
+
+			type: Array
+		},
+		exam: {
 
 			type: Array
 		}
@@ -49999,6 +49995,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			showModal: false,
 			'name': "",
 			'standardId': "",
+			'listExamsUnderStandard': [],
+
 			csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 		};
 	},
@@ -50020,22 +50018,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					_this.standardId = selectedStandard.id;
 					_this.name = selectedStandard.name;
 				}
+				console.log(names.name);
 			});
 
 			this.openModal();
 		},
 		formSubmit: function formSubmit() {
+			var _this2 = this;
 
-			axios.post('/exams', {
+			// alert("hi");
 
-				'name': this.name,
+			this.standard.forEach(function (names) {
 
-				// 'standard_id':this.standardId
+				if (_this2.name == names.name) {
 
-				'standard_id': this.standardId
+					_this2.exam.forEach(function (exams) {
 
-			}).then(function (response) {
-				return console.log(response.data);
+						if (exams.standard_id == names.id) {
+
+							_this2.listExamsUnderStandard.push(exams.name);
+						}
+					});
+				}
 			});
 
 			this.closeModal();
@@ -50060,108 +50064,190 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "a",
-      {
-        staticClass: "button is-link is-rounded",
-        on: {
-          click: function($event) {
-            _vm.openModal()
+  return _c(
+    "div",
+    [
+      _c(
+        "a",
+        {
+          staticClass: "button is-link is-rounded",
+          on: {
+            click: function($event) {
+              _vm.openModal()
+            }
           }
-        }
-      },
-      [_vm._v("Show Exams Under")]
-    ),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _vm.showModal
-      ? _c("div", { staticClass: "modal is-active", attrs: { id: "modal" } }, [
-          _c("div", { staticClass: "modal-background" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "modal-card" }, [
-            _c("header", { staticClass: "modal-card-head" }, [
-              _c("p", { staticClass: "modal-card-title" }, [
-                _vm._v("Create Exam")
-              ]),
+        },
+        [_vm._v("Show Exams Under")]
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _vm.showModal
+        ? _c(
+            "div",
+            { staticClass: "modal is-active", attrs: { id: "modal" } },
+            [
+              _c("div", { staticClass: "modal-background" }),
               _vm._v(" "),
-              _c("button", {
-                staticClass: "delete",
-                attrs: { "aria-label": "close" },
-                on: {
-                  click: function($event) {
-                    _vm.closeModal()
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("section", { staticClass: "modal-card-body" }, [
-              _c("form", { attrs: { method: "POST", action: "/exams/show" } }, [
-                _c("input", {
-                  attrs: { type: "hidden", name: "_token" },
-                  domProps: { value: _vm.csrf }
-                }),
-                _vm._v(" "),
-                _c("label", [_vm._v(" Standard:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.name,
-                      expression: "name"
-                    }
-                  ],
-                  attrs: { id: "name", type: "text", name: "name" },
-                  domProps: { value: _vm.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.name = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("footer", { staticClass: "modal-card-foot" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button is-success",
-                      attrs: { type: "submit" }
-                    },
-                    [_vm._v("Submit")]
-                  ),
+              _c("div", { staticClass: "modal-card" }, [
+                _c("header", { staticClass: "modal-card-head" }, [
+                  _c("p", { staticClass: "modal-card-title" }, [
+                    _vm._v("Select Standard")
+                  ]),
                   _vm._v(" "),
+                  _c("button", {
+                    staticClass: "delete",
+                    attrs: { "aria-label": "close" },
+                    on: {
+                      click: function($event) {
+                        _vm.closeModal()
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("section", { staticClass: "modal-card-body" }, [
                   _c(
-                    "button",
+                    "form",
                     {
-                      staticClass: "button",
+                      attrs: { method: "POST", action: "/exams/show" },
                       on: {
-                        click: function($event) {
-                          _vm.closeModal()
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.formSubmit($event)
                         }
                       }
                     },
-                    [_vm._v("Cancel")]
+                    [
+                      _c("input", {
+                        attrs: { type: "hidden", name: "_token" },
+                        domProps: { value: _vm.csrf }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [_vm._v(" Standard:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.name,
+                            expression: "name"
+                          }
+                        ],
+                        attrs: { id: "name", type: "text", name: "name" },
+                        domProps: { value: _vm.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.name = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v(" id:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.standardId,
+                            expression: "standardId"
+                          }
+                        ],
+                        attrs: {
+                          id: "standard_id",
+                          type: "text",
+                          name: "standard_id",
+                          disabled: true
+                        },
+                        domProps: { value: _vm.standardId },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.standardId = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("br"),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.standardId,
+                            expression: "standardId"
+                          }
+                        ],
+                        attrs: {
+                          id: "standard_id",
+                          type: "hidden",
+                          name: "standard_id"
+                        },
+                        domProps: { value: _vm.standardId },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.standardId = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("footer", { staticClass: "modal-card-foot" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "button is-success",
+                            attrs: { type: "submit" }
+                          },
+                          [_vm._v("Submit")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "button",
+                            on: {
+                              click: function($event) {
+                                _vm.closeModal()
+                              }
+                            }
+                          },
+                          [_vm._v("Cancel")]
+                        )
+                      ])
+                    ]
                   )
                 ])
               ])
-            ])
-          ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.listExamsUnderStandard, function(examlist) {
+        return _c("li", { domProps: { textContent: _vm._s(examlist) } }, [
+          _c("a", [_vm._v(" {{}} ")])
         ])
-      : _vm._e()
-  ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

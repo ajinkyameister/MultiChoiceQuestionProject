@@ -16,9 +16,26 @@ class Exam extends Model
 		
 		return $this->hasMany(Subject::class);
 	}
+
 	public function standard(){
 		
 		return $this->belongsTo(Standard::class);
+	}
+	
+	public function createIfDoesNotExist($examName,$standardId){
+
+ 		$ExamExists = $this->checkIfExamExists($examName,$standardId);
+		 
+		 if(count($ExamExists)<1){
+
+        		$this->create(['name'=>$examName,
+    			               'standard_id' => $standardId]);
+
+    	}else{
+
+        		return " test exists";
+    	}
+		
 	}
 
 	protected function checkIfExamExists($examName, $standardId){
@@ -27,21 +44,6 @@ class Exam extends Model
                             ->where('standard_id',$standardId)
                             ->get();
 
-	}
-	 public function createIfDoesNotExist($examName,$standardId){
-
-	 		$ExamExists = $this->checkIfExamExists($examName,$standardId);
-			 
-			 if(count($ExamExists)<1){
-
-            $this->create(['name'=>$examName,
-                           'standard_id' => $standardId]);
-
-        }else{
-
-            return " test exists";
-        }
-		
 	}
 	
 	

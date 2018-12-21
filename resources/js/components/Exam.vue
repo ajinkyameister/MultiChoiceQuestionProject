@@ -2,8 +2,6 @@
 
 	<div>
 		<a class="button is-link is-rounded" @click="openModal()">Add Exam</a> <br> <br>
-		
-
 
 		<div id="modal"class="modal is-active" v-if="showModal">
 
@@ -39,11 +37,10 @@
 						<button type="submit" class="button is-success" >Save changes</button>
 						<button class="button" @click="closeModal()">Cancel</button>
 					</footer>
-
 					</form>	
 				</section>	
-			</div>
 
+			</div>					
 		</div>
 
 		<li v-for="onestandard in standard">

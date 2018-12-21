@@ -20,6 +20,7 @@
 
 		<section class="hero is-warning is-fullheight-with-navbar">
 
+
 			<div class="content is-medium"> 
 				<p> @yield('siteheader')</p>
 			</div>
