@@ -54,7 +54,7 @@ class ResellerController extends Controller
                 'role'=>'reseller',
                 'phone_number'=>$request->phone_number,
                 'address'=>$request->address,
-                'pan_card'=>$request->pan_card,
+                'pan_card'=>$request-ac>pan_card,
                 'email'=>$request->email,
                 'password'=>$request->password,
 
@@ -77,7 +77,7 @@ class ResellerController extends Controller
      */
     public function show(User $user)
     {
-        dd("inside SHOW METHOD as recommended by Amod Kulkarni");
+        // dd("inside SHOW METHOD as recommended by Amod Kulkarni");
         return view('showReseller',compact('user'));
 
 
@@ -106,7 +106,7 @@ class ResellerController extends Controller
     public function update(Request $request, User $user)
     {
     
-        dd($user->id);  
+        // dd($user->id);  
          $user->update(['name'=>$request->name,
                         'address'=>$request->address,
                         'phone_number'=>$request->phone_number,

@@ -23,9 +23,14 @@ class Institute extends Model
     	return $this->users()->where('role','admin')->get();
     }
 
-    public function getAllInstitutes(){
+    public static function getAllInstitutes(){
 
-        return $allInstitutes = $this->get();
+        return $allInstitutes = self::all();
+    }
+
+    public function updateInstitute($Institute_name){
+        $this->update(['name'=>$Institute_name]);
+
     }
     
     

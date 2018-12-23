@@ -14,7 +14,7 @@
 	<div class="box">
 		<form  method="POST" action="/resellers">
 
-					{{ csrf_field() }}
+				
 
 						<label> Name:</label>
 						<input type="text" name="name" > <a href=""> </a> <br> <br>	

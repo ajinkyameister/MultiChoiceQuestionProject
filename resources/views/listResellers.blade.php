@@ -9,25 +9,36 @@
 
 @section('mainbody')
 
-<a href="/resellers/create" class="button is-success"> Create Reseller</a>
-
-<a  class="button is-info" onclick="javascript:location.href='resellers/edit/'+document.listform.radio_user_selected.value"> Modify Reseller</a>
-
-<a  class="button is-dark" onclick="javascript:location.href='resellers/'+document.listform.radio_user_selected.value"> View Reseller</a>
-
-	<a  class="button is-danger" data-method="delete" onclick="javascript:location.href='resellers/'+document.listform.radio_user_selected.value"> Delete Reseller</a>
 
 
-<form name="listform" method="POST" >
+
+	{{-- <a  class="button is-danger"  onclick="javascript:location.href='resellers/'+document.listform.radio_user_selected.value"> Delete Reseller</a> --}}
+
+
+<form  name="listform" method="POST" >
 
 	{{ csrf_field() }}
+<div class="container">
 
-	{{ method_field('DELETE') }}
+
+	<button type="submit" name="_method" value="GET" 
+			onclick="javascript: form.action='/resellers/edit/'+document.listform.radio_user_selected.value;" 
+			class="button is-info">
+		modify
+	</button>
 	
-<button class="button is-primary"  onclick="javascript:location.href='resellers/'+document.listform.radio_user_selected.value">Using Button to delete</button>
+	<button type="submit" name="_method" value="GET" onclick="javascript: form.action='/resellers/'+document.listform.radio_user_selected.value;" class="button is-dark" value="view">
+		 view
+	</button>
+	
+	<button type="submit" name="_method" value="DELETE" onclick="javascript: form.action='/resellers/'+document.listform.radio_user_selected.value;"  class="button is-danger" > 
+		delete
+	</button>
 
-<div id="app" class="section" >		
-	<table class="table is-striped" >
+	<a href="/resellers/create" class="button is-success is-pulled-right"> Create Reseller</a>
+
+ 		<hr>
+	<table class="table is-striped is-bordered" >
 		<thead> 
 			<tr> 
 				<th></th>

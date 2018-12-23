@@ -80,15 +80,12 @@ Route::delete('/resellers/{user}','ResellerController@destroy');
 
 //-------------------------------Institute Routes------------------------------------------//
 
-Route::get('/institutes',function(){
-  return view('institute'); 
-
-  // return "Hello World from Institute";
-})->name('institute');
-
+Route::get('/institutes', 'InstituteController@index')->name('institute');
+Route::get('/institute/create','InstituteController@create');
 Route::post('/institutes','InstituteController@store');
-
-Route::get('/institutes/show','InstituteController@show');
+Route::get('/institutes/{institute}','InstituteController@show');
+Route::get('/institutes/edit/{institute}','InstituteController@edit');
+Route::patch('/institutes/{institute}','InstituteController@update');
 
 // Route::get('/institutes/{institute}','InstituteController@edit');
 

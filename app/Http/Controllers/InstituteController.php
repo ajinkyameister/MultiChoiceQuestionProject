@@ -15,7 +15,8 @@ class InstituteController extends Controller
      */
      public function index()
      {
-        //
+        $institutes = Institute::getAllInstitutes();
+        return view('listInstitutes',compact('institutes'));
      }
 
     /**
@@ -25,7 +26,7 @@ class InstituteController extends Controller
      */
     public function create()
     {
-        //
+        return view('createInstitute');
     }
 
     /**
@@ -47,7 +48,7 @@ class InstituteController extends Controller
 
         }
 
-    	return redirect('/institutes/show');
+    	return redirect('/institutes');
     }
 
     /**
@@ -59,8 +60,7 @@ class InstituteController extends Controller
     public function show(Institute $institute)
     {
 
-    	$institutes = $institute->getAllInstitutes();
-
+        $institutes = $institute->getAllInstitutes();
     	
         return view('listInstitutes',compact('institutes'));
 
@@ -72,15 +72,9 @@ class InstituteController extends Controller
      * @param  \App\Reseller  $reseller
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,Institute $institute)
+    public function edit(Institute $institute)
     {
-    	// return view('modifyInstituteForm',compact('institute'));
-
-       $institute->where('id',$request->id)->update(['name'=>$request->name]);
-
-       $institutes = $institute->all();
-
-        return view('listInstitutes',compact('institutes'));
+    	return view('modifyInstitute',compact('institute'));      
        
     }
 
@@ -93,7 +87,10 @@ class InstituteController extends Controller
      */
     public function update(Request $request, Institute $institute)
     {
-        // dd($request->id);
+     
+        $institute->updateInstitute($request->name);
+        
+        return redirect('/institutes');
     }
 
     /**
