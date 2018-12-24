@@ -23,7 +23,7 @@
 	<a class="button is-info">View Exam</a>
 	<a class="button is-danger">Delete Exam</a>
 	<br> <br>
-	<table class="table is-narrow">
+	<table class="table is-narrow is-hoverable">
 		<thead>
 			<tr>
 				<th>Standard</th>
