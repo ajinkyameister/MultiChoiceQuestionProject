@@ -14,7 +14,7 @@
 	<title>{{ config('app.name', 'Laravel123') }}</title>
 </head>
 <body>
-	<div id="app">
+	<div id="">
 
 		@yield('top')
 
