@@ -29,6 +29,7 @@ class Institute extends Model
     }
 
     public function updateInstitute($Institute_name){
+        
         $this->update(['name'=>$Institute_name]);
 
     }

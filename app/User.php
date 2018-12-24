@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Standard;
 use App\Choice;
 use App\Test;
+use App\Institute;
 
 class User extends Authenticatable
 {
@@ -19,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'role','phone_number','address','pan_card','email', 'password',
+       'Institute_id' ,'name', 'role','phone_number','address','pan_card','email', 'password',
     ];
 
     /**
@@ -44,6 +45,11 @@ class User extends Authenticatable
     public function tests(){
         
         return $this->belongsToMany(Test::class);
+    }
+
+    public function institutes(){
+
+        return $this->belongsTo(Institute::class);
     }
 
     public static function getAllResellers(){
