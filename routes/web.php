@@ -87,6 +87,7 @@ Route::get('/institutes/{institute}','InstituteController@show');
 Route::get('/institutes/edit/{institute}','InstituteController@edit');
 Route::patch('/institutes/{institute}','InstituteController@update');
 
+
 // Route::get('/institutes/{institute}','InstituteController@edit');
 
   

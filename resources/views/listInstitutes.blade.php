@@ -49,7 +49,7 @@
 						</label> 
 					</td>
 
-					<td>  {{$institute->name}}   </td>
+					<td>  {{$institute->name}}  </td>
 				</div>
 							
 			</tr> 

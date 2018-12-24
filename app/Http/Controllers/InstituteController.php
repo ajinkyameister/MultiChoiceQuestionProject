@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Institute;
+use App\User;
 
 class InstituteController extends Controller
 {
@@ -13,10 +14,10 @@ class InstituteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function index()
+     public function index(User $user)
      {
         $institutes = Institute::getAllInstitutes();
-        return view('listInstitutes',compact('institutes'));
+        return view('listInstitutes',compact('institutes','user'));
      }
 
     /**
@@ -89,7 +90,7 @@ class InstituteController extends Controller
     {
      
         $institute->updateInstitute($request->name);
-        
+
         return redirect('/institutes');
     }
 
