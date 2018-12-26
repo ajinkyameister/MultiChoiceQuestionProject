@@ -56,16 +56,17 @@ Route::get('/reseller',function(){
 // })->name('reseller')->middleware('auth');
 
 //-------------------------------Reseller Routes------------------------------------------//
+// Route::resource('users','UserController');
 
-
-
-Route::get('/resellers','ResellerController@index');
-Route::get('/resellers/create','ResellerController@create');
-Route::get('/resellers/{user}','ResellerController@show');
-Route::post('/resellers','ResellerController@store');
-Route::get('/resellers/edit/{user}','ResellerController@edit');
-Route::patch('/resellers/{user}','ResellerController@update');
-Route::delete('/resellers/{user}','ResellerController@destroy');
+Route::middleware(['can:view-resellers'])->group(function () {
+    Route::get('/resellers','ResellerController@index');
+    Route::get('/resellers/create','ResellerController@create');
+    Route::get('/resellers/{user}','ResellerController@show');
+    Route::post('/resellers','ResellerController@store');
+    Route::get('/resellers/edit/{user}','ResellerController@edit');
+    Route::patch('/resellers/{user}','ResellerController@update');
+    Route::delete('/resellers/{user}','ResellerController@destroy');
+}) ;   
 
 // Route::get('/resellers/create',function(){
 

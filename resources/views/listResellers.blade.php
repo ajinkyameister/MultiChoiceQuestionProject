@@ -98,32 +98,31 @@
 						<input type="radio" id="radio_user_selected" name="user_selected" value="{{$user->id}}">							
 					</label>  --}}
 
+			{{$user->name}}
 
+					@can('crud-reseller',$user)
 
-					{{$user->name}}
+					<button type="submit" name="_method" value="DELETE" onclick="javascript: form.action='/resellers/'+{{$user->id}};"  class="button is-danger is-small is is-pulled-right " > 
+						delete
+					</button>
 
-					
-					
-				
+					<button type="submit" name="_method" value="GET" onclick="javascript: form.action='/resellers/'+{{$user->id}};" class="button is-dark is-small is-pulled-right" value="view">
+						view
+					</button>
 
-				
-
-				<button type="submit" name="_method" value="DELETE" onclick="javascript: form.action='/resellers/'+{{$user->id}};"  class="button is-danger is-small is is-pulled-right " > 
-					delete
-				</button>
-				<button type="submit" name="_method" value="GET" onclick="javascript: form.action='/resellers/'+{{$user->id}};" class="button is-dark is-small is-pulled-right" value="view">
-					view
-				</button>
-				<button type="submit" name="_method" value="GET" 
+					<button type="submit" name="_method" value="GET" 
 					onclick="javascript: form.action='/resellers/edit/'+{{$user->id}};" 
 					class="button is-info is-small is-pulled-right " style="margin-left: 10px">
 					modify
 				</button>
 
+				@endcan
 
 			</a>
 		</p>
-		<p class="subtitle is-6">@johnsmith</p>
+		<p class="subtitle is-6">id = {{ $user->id }}</p>
+
+		<p>{{$user->email}} </p>
 	</div>
 </div>
 

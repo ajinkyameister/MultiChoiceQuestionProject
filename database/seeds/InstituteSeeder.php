@@ -28,14 +28,14 @@ class InstituteSeeder extends Seeder
         factory(App\Institute::class,4)->create()->each(function ($i) {
        
         $resellers = factory(App\User::class)->create(['role'=>'reseller']);
-       foreach($resellers as $reseller) $i->users()->save($reseller)
+        foreach($resellers as $reseller) $i->users()->save($reseller);
 
 
         $admins = factory(App\User::class,8)->create(['role'=>'admin']);
         foreach($admins as $admin) $i->users()->save($admin);
 
         $students = factory(App\User::class,50)->create(['role'=>'student']);
-        foreach($students as $student) $i->users()->save($student)
+        foreach($students as $student) $i->users()->save($student);
             // dd($i);
     });
     }

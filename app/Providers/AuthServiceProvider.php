@@ -25,6 +25,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('crud-reseller', function ($user,$reseller) {
+          return $user->id ==  $reseller->id;
+        });
+
+
+        Gate::define('view-resellers', function ($user) {       
+          return $user->role ===  'superAdmin';
+        });
+
     }
 }

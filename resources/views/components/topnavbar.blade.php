@@ -43,10 +43,12 @@ if(Route::currentRouteName() == 'about') $aboutIsActive = 'is-active';
 				</a>
 
 				<div class="navbar-dropdown">
-					<a href="/reseller" class="navbar-item">
-						Reseller
-					</a>
-					<a class="navbar-item">
+					@if(auth()->user()->role=='superAdmin')
+						<a href="/resellers" class="navbar-item">
+							Reseller
+						</a>
+					@endif
+					<a href ="/institutes" class="navbar-item">
 						Institute
 					</a>					
 					<a class="navbar-item">
