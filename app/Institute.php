@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Institute extends Model
@@ -10,7 +11,7 @@ class Institute extends Model
 
     public function users(){
     	
-    	$this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class);
     }
     
     public function reseller(){

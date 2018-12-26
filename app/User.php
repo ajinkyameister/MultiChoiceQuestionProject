@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'Institute_id' ,'name', 'role','phone_number','address','pan_card','email', 'password',
+       'name', 'role','phone_number','address','pan_card','email', 'password',
     ];
 
     /**
@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function institutes(){
 
-        return $this->belongsTo(Institute::class);
+        return $this->belongsToMany(Institute::class);
     }
 
     public static function getAllResellers(){
@@ -57,6 +57,18 @@ class User extends Authenticatable
         // return $allResellers = $this->where('role','reseller')->get();
 
             return self::where('role','reseller')->get();
+    }
+    public static function getAllAdmins(){
+
+        // return $allResellers = $this->where('role','reseller')->get();
+
+            return self::where('role','admin')->get();
+    }
+    public static function getAllStudents(){
+
+        // return $allResellers = $this->where('role','reseller')->get();
+
+            return self::where('role','student')->get();
     }
     
 }

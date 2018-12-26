@@ -16,11 +16,12 @@
 <body>
 	<div id="">
 
-		@yield('top')
+		
 
 		<section class="hero is-warning is-fullheight-with-navbar">
 
-
+			@yield('top')
+			
 			<div class="content is-medium"> 
 				<p> @yield('siteheader')</p>
 			</div>

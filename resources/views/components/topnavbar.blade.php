@@ -8,8 +8,8 @@ if(Route::currentRouteName() == 'about') $aboutIsActive = 'is-active';
 
 @endphp
 {{-- dsdasdasdasdasdasdasdasd --}}
-
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<div class="container">
+<nav class="navbar nav" role="navigation" aria-label="main navigation">
 	<div class="navbar-brand">
 		<a class="navbar-item" href="/">
 			MCQ Project
@@ -87,7 +87,9 @@ if(Route::currentRouteName() == 'about') $aboutIsActive = 'is-active';
 	</div> 
 	
 </div>
+
 </nav>
+</div>
 
 {{-- asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdas --}}
 

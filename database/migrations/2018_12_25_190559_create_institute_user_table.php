@@ -14,10 +14,9 @@ class CreateInstituteUserTable extends Migration
     public function up()
     {
         Schema::create('institute_user', function (Blueprint $table) {
-            $table->increments('id');
             $table->unsignedInteger('institute_id');
             $table->unsignedInteger('user_id');
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 
