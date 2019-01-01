@@ -49971,9 +49971,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49996,7 +49993,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			'name': "",
 			'standardId': "",
 			'listExamsUnderStandard': [],
-
 			csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 		};
 	},
@@ -50008,35 +50004,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 	methods: {
-		selectStandard: function selectStandard(selectedStandard) {
+		formSubmit: function formSubmit() {
 			var _this = this;
 
 			this.standard.forEach(function (names) {
 
-				if (selectedStandard.name == names.name) {
+				if (_this.name == names.name) {
 
-					_this.standardId = selectedStandard.id;
-					_this.name = selectedStandard.name;
-				}
-				console.log(names.name);
-			});
-
-			this.openModal();
-		},
-		formSubmit: function formSubmit() {
-			var _this2 = this;
-
-			// alert("hi");
-
-			this.standard.forEach(function (names) {
-
-				if (_this2.name == names.name) {
-
-					_this2.exam.forEach(function (exams) {
+					_this.exam.forEach(function (exams) {
 
 						if (exams.standard_id == names.id) {
 
-							_this2.listExamsUnderStandard.push(exams.name);
+							_this.listExamsUnderStandard.push(exams.name);
 						}
 					});
 				}
@@ -50053,7 +50032,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.showModal = true;
 		}
 	}
-
 });
 
 /***/ }),
@@ -50241,9 +50219,7 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm._l(_vm.listExamsUnderStandard, function(examlist) {
-        return _c("li", { domProps: { textContent: _vm._s(examlist) } }, [
-          _c("a", [_vm._v(" {{}} ")])
-        ])
+        return _c("li", [_vm._v(" " + _vm._s(examlist))])
       })
     ],
     2

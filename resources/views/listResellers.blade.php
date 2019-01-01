@@ -13,6 +13,7 @@
 
 
 {{-- <a  class="button is-danger"  onclick="javascript:location.href='resellers/'+document.listform.radio_user_selected.value"> Delete Reseller</a> --}}
+	{{-- <div class="view-reseller" > --}}
 
 
 <form  name="listform" method="POST" >
@@ -86,19 +87,19 @@
 <div class="card-content">
 	<div class="media">
 		<div class="media-left">
-			<figure class="image is-48x48">
+			<figure class="image is-128x12	8">
 				<img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
 			</figure>
 		</div>
 		<div class="media-content">
-			<p class="title is-5">
-				<a href="/resellers/edit/{{$user->id}}">
+			<p class="title is-5 has-text-dark">
+				 <a href="/resellers/edit/{{$user->id}}" >
 
 					{{-- <label class="radio">							
 						<input type="radio" id="radio_user_selected" name="user_selected" value="{{$user->id}}">							
 					</label>  --}}
 
-			{{$user->name}}
+				{{$user->name}}
 
 					@can('crud-reseller',$user)
 
@@ -120,7 +121,7 @@
 
 			</a>
 		</p>
-		<p class="subtitle is-6">id = {{ $user->id }}</p>
+		<p class="subtitle is-6 has-text-dark">id = {{ $user->id }}</p>
 
 		<p>{{$user->email}} </p>
 	</div>
@@ -146,6 +147,10 @@
 </div>
 
 </form>
+
+
+{{-- </div> --}}
+
 
 @endsection
 

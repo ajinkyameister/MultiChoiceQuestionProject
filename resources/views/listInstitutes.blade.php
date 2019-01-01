@@ -1,10 +1,15 @@
 
 @extends('layouts.app')
 
+@section('top')
+	@component('components.topnavbar') @endcomponent
+
+@endsection
+
 @section('mainbody')
 
 
-
+<section> 
 
 <form  name="listform" method="POST" >
 
@@ -65,7 +70,7 @@
 {{-- <modifyinstitute :institute="{{  json_encode($institutes) }}"> </modifyinstitute> --}}
 
 <!-- Submit button to be added. Axios request Post Method to ResellerController Create -->
-
+</section>
 {{-- </div> --}}
 @endsection
 

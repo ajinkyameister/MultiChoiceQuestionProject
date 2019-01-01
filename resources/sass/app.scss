@@ -3,12 +3,20 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+@import '_variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
+
+@import'./node_modules/bulma/bulma.sass';
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.view-reseller{
+    background-image: url('/sales.png');    
+    background-color:#B9CBD5;
+    background-height:50%;
 }

@@ -59,7 +59,7 @@ Route::get('/reseller',function(){
 // Route::resource('users','UserController');
 
 Route::middleware(['can:view-resellers'])->group(function () {
-    Route::get('/resellers','ResellerController@index');
+    Route::get('/resellers','ResellerController@index')->name('resellers');
     Route::get('/resellers/create','ResellerController@create');
     Route::get('/resellers/{user}','ResellerController@show');
     Route::post('/resellers','ResellerController@store');

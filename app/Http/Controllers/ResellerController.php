@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Collection;
+
 
 class ResellerController extends Controller
 {
@@ -12,7 +15,7 @@ class ResellerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $resellers = $user->where('role','reseller')->get(); 
 
@@ -22,6 +25,10 @@ class ResellerController extends Controller
         // $user = new User;
         // doing "index(User $user) or $user = new User creates an object and if "User" has any dependencies need to be resolved, which increases processing time and memory is wasted.
         // Creating Static method directly calls a method from the Model hence dependecies need not be resolved, hence faster and more efficient.
+
+        $url = Request::path();
+
+        $this->displayBreadcrumbs($url);
 
         $resellers = User::getallResellers();
         
@@ -54,7 +61,7 @@ class ResellerController extends Controller
                 'role'=>'reseller',
                 'phone_number'=>$request->phone_number,
                 'address'=>$request->address,
-                'pan_card'=>$request-ac>pan_card,
+                'pan_card'=>$request->pan_card,
                 'email'=>$request->email,
                 'password'=>$request->password,
 
@@ -63,9 +70,9 @@ class ResellerController extends Controller
 
        $users = $user->all();
 
-       return view('listResellers',compact('users'));
+       // return view('listResellers',compact('users'));
 
-       // return redirect('/resellers/show');
+       return redirect('/resellers');
 
     }
 
@@ -130,4 +137,19 @@ class ResellerController extends Controller
     {
         dd("inside DELETE METHOD ");
     }
+
+    public function displayBreadcrumbs($url){
+
+                $route=[]; 
+                $routeChain="" ;
+                
+                for($i=1; $i<=count(Request::segments($url));$i++) {
+                    $route[$i]= Request::segment($i);             
+                }
+
+            $routeChain= implode('/',$route); 
+            view('components.topnavbar',compact('routeChain'))  ;
+
+    }
 }
+ 
