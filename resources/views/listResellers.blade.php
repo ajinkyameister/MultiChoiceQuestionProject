@@ -114,7 +114,7 @@
 					<button type="submit" name="_method" value="GET" onclick="javascript: form.action='/resellers/'+{{$user->id}};" class="button is-dark is-small is-pulled-right" value="view">
 						view
 					</button>
-
+					
 					<button type="submit" name="_method" value="GET" 
 					onclick="javascript: form.action='/resellers/edit/'+{{$user->id}};" 
 					class="button is-info is-small is-pulled-right " style="margin-left: 10px">
