@@ -13,13 +13,13 @@
 
 
 {{-- <a  class="button is-danger"  onclick="javascript:location.href='resellers/'+document.listform.radio_user_selected.value"> Delete Reseller</a> --}}
-	{{-- <div class="view-reseller" > --}}
+{{-- <div class="view-reseller" > --}}
 
 
-<form  name="listform" method="POST" >
+	<form  name="listform" method="POST" >
 
-	{{ csrf_field() }}
-	<div class="container">
+		{{ csrf_field() }}
+		<div class="container">
 
 
 		{{-- <button type="submit" name="_method" value="GET" 
@@ -76,9 +76,13 @@
 	--}}
 	
 	<div class="columns is-multiline">
+
 		@foreach($resellers as $user)
+
 		<div class="column is-full">
+
 			<div class="box">
+
   {{-- <div class="card-image">
     <figure class="image is-4by3">
       <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
@@ -88,18 +92,18 @@
 	<div class="media">
 		<div class="media-left">
 			<figure class="image is-128x12	8">
-				<img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+				<img src='http://lorempixel.com/96/96/' alt="Placeholder image">
 			</figure>
 		</div>
 		<div class="media-content">
 			<p class="title is-5 has-text-dark">
-				 <a href="/resellers/edit/{{$user->id}}" >
+				<a href="/resellers/edit/{{$user->id}}" >
 
 					{{-- <label class="radio">							
 						<input type="radio" id="radio_user_selected" name="user_selected" value="{{$user->id}}">							
 					</label>  --}}
 
-				{{$user->name}}
+					{{$user->name}}
 
 					@can('crud-reseller',$user)
 

@@ -41,7 +41,11 @@ if(Route::currentRouteName() == 'about') $aboutIsActive = 'is-active';
 				<div class="navbar-item has-dropdown is-hoverable has-text-dark" >
 
 					<a class="navbar-link is-hoverable">
-						Administration
+						<span>
+							<i class="fas fa-unlock-alt fa-fw" aria-hidden="true"> 
+							</i>
+							Administration
+						</span>
 					</a>
 					
 					<div class="navbar-dropdown" >
@@ -62,15 +66,15 @@ if(Route::currentRouteName() == 'about') $aboutIsActive = 'is-active';
 							</span>
 						</a>			
 
-						<a class="navbar-item has-text-dark">
+						<a class="navbar-item">
 							<span>
-								<i class="fa fa-user-graduate" aria-hidden="true"> 
+								<i class="fa fa-user-graduate fa-fw" aria-hidden="true"> 
 								</i> &nbsp Student
 							</span>
 						</a>
 						<a class="navbar-item has-text-dark">
 							<span>
-								<i class="fa fa-list-ol" aria-hidden="true">  
+								<i class="fa fa-list-ol fa-fw" aria-hidden="true">  
 								</i> &nbsp Audit Log
 							</span>
 						</a>
@@ -126,38 +130,38 @@ if(Route::currentRouteName() == 'about') $aboutIsActive = 'is-active';
 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs" >
 	<ul class="page-breadcrumb">
 		
-			@php
-				$createBreadcrums=[];
-			@endphp
-			@for($i =0; $i <= count(Request::segments()); $i++)	
-				@php 
-					$createBreadcrums[$i] = Request::segment($i);
-					$createRouteFromBreadcrums = implode('/', $createBreadcrums);
-				@endphp
-			<li> 
-				{{-- {{$createRouteFromBreadcrums}} --}}
-				<a href="{{Route::currentRouteName()}}">  	 
-					 {{-- @if(Request::segment($i)==='resellers')  --}}
-						 <a href="{{$createRouteFromBreadcrums}}">
-						 	 
-						 		{{Request::segment($i)}}
-						 	
-						 </a>
-				 {{-- @elseif(Request::segment($i)==='about') --}}
-						{{-- <a href="/about"><li > {{"About Us"}}</li></a> --}}
-					{{-- @elseif(Request::segment($i)==='home') --}}
-						 {{-- <a href="/home"><li>  {{"Home"}}</li> </a> --}}
-					 {{-- @elseif(Request::segment($i)==='institutes') --}}
-						  {{-- <a href="/institutes"> <li>{{"Institutes"}} </li>	</a> --}}
-					 {{-- @endif --}}
-				</a> 
-			</li>
-			 {{-- @if($i < count(Request::segments()) & $i > 0) --}}
-				 {{-- {!!'<i class="fa fa-angle-right"></i>'!!} --}}
-			 {{-- @enif --}}
-			 
+		@php
+		$createBreadcrums=[];
+		@endphp
+		@for($i =0; $i <= count(Request::segments()); $i++)	
+		@php 
+		$createBreadcrums[$i] = Request::segment($i);
+		$createRouteFromBreadcrums = implode('/', $createBreadcrums);
+		@endphp
+		<li> 
+			{{-- {{$createRouteFromBreadcrums}} --}}
+			<a href="{{Route::currentRouteName()}}">  	 
+				{{-- @if(Request::segment($i)==='resellers')  --}}
+				<a href="{{$createRouteFromBreadcrums}}">
+
+					{{Request::segment($i)}}
+
+				</a>
+				{{-- @elseif(Request::segment($i)==='about') --}}
+				{{-- <a href="/about"><li > {{"About Us"}}</li></a> --}}
+				{{-- @elseif(Request::segment($i)==='home') --}}
+				{{-- <a href="/home"><li>  {{"Home"}}</li> </a> --}}
+				{{-- @elseif(Request::segment($i)==='institutes') --}}
+				{{-- <a href="/institutes"> <li>{{"Institutes"}} </li>	</a> --}}
+				{{-- @endif --}}
+			</a> 
+		</li>
+		{{-- @if($i < count(Request::segments()) & $i > 0) --}}
+		{{-- {!!'<i class="fa fa-angle-right"></i>'!!} --}}
+		{{-- @enif --}}
+
 		@endfor
-	
+
 		
 	</ul>		
 </nav>
