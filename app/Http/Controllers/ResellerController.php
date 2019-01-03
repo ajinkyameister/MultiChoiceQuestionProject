@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
-// use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Collection;
 
 
@@ -26,7 +26,9 @@ class ResellerController extends Controller
         // doing "index(User $user) or $user = new User creates an object and if "User" has any dependencies need to be resolved, which increases processing time and memory is wasted.
         // Creating Static method directly calls a method from the Model hence dependecies need not be resolved, hence faster and more efficient.
 
-        $url = Request::path();
+        // $url = Request::path();
+
+        $url = $request->path();
 
         $this->displayBreadcrumbs($url);
 
@@ -140,11 +142,13 @@ class ResellerController extends Controller
 
     public function displayBreadcrumbs($url){
 
+        $request = New Request;
+
                 $route=[]; 
                 $routeChain="" ;
                 
-                for($i=1; $i<=count(Request::segments($url));$i++) {
-                    $route[$i]= Request::segment($i);             
+                for($i=1; $i<=count($request->segments($url));$i++) {
+                    $route[$i]= $request->segment($i);             
                 }
 
             $routeChain= implode('/',$route); 

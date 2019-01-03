@@ -26,10 +26,10 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('crud-reseller', function ($user,$reseller) {
-            if ($user->id==$reseller->id){
-                return $user->id ==  $reseller->id;
-            }
-            elseif($user->role ==='superAdmin'){           
+            // if ($user->id==$reseller->id){
+            //     return $user->id ==  $reseller->id;
+            // }
+            if($user->role ==='superAdmin'){           
                     return $user->id ;
             }
         });

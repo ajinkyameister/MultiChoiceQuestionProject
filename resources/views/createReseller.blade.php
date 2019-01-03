@@ -19,29 +19,29 @@
 			<div class="field">
 				<label class="label"> Name:</label>
 				<div class="control">
-					<input type="text" name="name" > <a href=""> </a> <br> <br>	
+					<input type="text" id="name" name="name" > <a href=""> </a> <br> <br>	
 				</div>
 			</div>
 			<div class="field">
 				<label class="label"> Address:</label>
-				<input type="text" name="address" > <br> <br>
+				<input type="text" id="address" name="address" > <br> <br>
 			</div>
 
 			<div class="field">	
 				<label class="label"> Phone Number:</label>
-				<input type="text" name="phone_number" > <br> <br>
+				<input type="text" id= "phone_number"name="phone_number" > <br> <br>
 			</div>
 			<div class="field">	
 				<label class="label"> Email:</label>
-				<input type="text" name="email" > <br> <br>
+				<input type="text" id= "email"name="email" > <br> <br>
 			</div>
 			<div class="field">	
 				<label class="label"> PAN Card:</label>
-				<input type="text" name="pan_card" > <br> <br>
+				<input type="text" id="pan_card"name="pan_card" > <br> <br>
 			</div>
 			<div class="field">	
 				<label class="label">  Password:</label>
-				<input type="password" name="password" > <br> <br>
+				<input type="password" id = "password"name="password" > <br> <br>
 			</div>
 
 			<button type="submit" class="button is-success" >Save changes</button>
