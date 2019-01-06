@@ -19,7 +19,7 @@
 	<form  name="listform" method="POST" >
 
 		{{ csrf_field() }}
-		<div class="container">
+		{{-- <div class="container"> --}}
 
 
 		{{-- <button type="submit" name="_method" value="GET" 
@@ -74,81 +74,96 @@
 
 	</table>
 	--}}
-	
-	<div class="columns is-multiline">
+	<div class="card">
+		
+		<div class="columns is-multiline">
 
-		@foreach($resellers as $user)
+			@foreach($resellers as $user)
 
-		<div class="column is-full">
+			<div class="column is-one-half">
 
-			<div class="box">
+				{{-- <div class="card"> --}}
+					{{-- <div class="card-image is-small"> --}}
+						<figure class="image is-48x48" style="height: 100px; width: 100px">
+							<img src={{$faker->imageUrl(400, 300,'people')}} alt="Placeholder image">
+						</figure>
+					{{-- </div> --}}
+				{{-- </div>	 --}}
+
+
 
   {{-- <div class="card-image">
     <figure class="image is-4by3">
       <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
     </figure>
 </div> --}}
-<div class="card-content">
-	<div class="media">
-		<div class="media-left">
+
+
+
+
+{{-- <div class="media"> --}}
+		{{-- <div class="media-left">
 			<figure class="image is-128x12	8">
 				<img src='http://lorempixel.com/96/96/' alt="Placeholder image">
 			</figure>
-		</div>
-		<div class="media-content">
+		</div> --}}
+		{{-- <div class="media-content"> --}}
+
 			<p class="title is-5 has-text-dark">
-				<a href="/resellers/edit/{{$user->id}}" >
-
-					{{-- <label class="radio">							
-						<input type="radio" id="radio_user_selected" name="user_selected" value="{{$user->id}}">							
-					</label>  --}}
-
-					{{$user->name}}
-
-					@can('crud-reseller',$user)
-
-					<button type="submit" name="_method" value="DELETE" onclick="javascript: form.action='/resellers/'+{{$user->id}};"  class="button is-danger is-small is is-pulled-right " > 
-						delete
-					</button>
-
-					<button type="submit" name="_method" value="GET" onclick="javascript: form.action='/resellers/'+{{$user->id}};" class="button is-dark is-small is-pulled-right" value="view">
-						view
-					</button>
+				
+							{{-- <label class="radio">							
+								<input type="radio" id="radio_user_selected" name="user_selected" value="{{$user->id}}">							
+							</label>  --}}
+							{{-- <div class= "coulmn is-one-quarter"> --}}
+							<div class="card-header-title"> {{$user->name}} </div>
 					
-					<button type="submit" name="_method" value="GET" 
-					onclick="javascript: form.action='/resellers/edit/'+{{$user->id}};" 
-					class="button is-info is-small is-pulled-right " style="margin-left: 10px">
-					modify
-				</button>
+					</p>
+					{{-- <div class="card"> --}}
+						<p class="subtitle is-6 has-text-dark">id = {{ $user->id }}</p>
+						<p>{{$user->email}} </p>
 
-				@endcan
+						Lorem ipsum dolor sit amet <a>@bulmaio</a>.
+						<a href="#">#css</a> <a href="#">#responsive</a>
+						<br>
+						<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+						</a>
 
-			</a>
-		</p>
-		<p class="subtitle is-6 has-text-dark">id = {{ $user->id }}</p>
 
-		<p>{{$user->email}} </p>
+					<footer class="card-footer">
+						@can('crud-reseller',$user)
+
+						<button type="submit" name="_method" value="DELETE" onclick="javascript: form.action='/resellers/'+{{$user->id}};"  
+							class=" button is-danger is-small is is-pulled-right card-footer-item " > 
+							delete
+						</button>
+
+						<button type="submit" name="_method" value="GET" onclick="javascript: form.action='/resellers/'+{{$user->id}};" 
+							class=" button is-dark is-small is-pulled-right card-footer-item" value="view">
+							view
+						</button>
+
+						<button type="submit" name="_method" value="GET" 
+						onclick="javascript: form.action='/resellers/edit/'+{{$user->id}};" 
+						class="button is-info is-small is-pulled-right card-footer-item" style="margin-left: 10px">
+						modify
+					</button>
+
+
+					@endcan
+				</footer>
+			{{-- </div> --}}
+
+
+
+			@endforeach
+		</div> 
 	</div>
 </div>
-
-<div class="content">
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-	Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-	<a href="#">#css</a> <a href="#">#responsive</a>
-	<br>
-	<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-</div>
-</div>
-</div>
-
-</div>
-@endforeach
-</div> 
 {{-- <show-reseller :reseller="{{  json_encode($resellers) }}"></show-reseller> --}}
 
 <!-- Submit button to be added. Axios request Post Method to ResellerController Create -->
 
-</div>
+{{-- </div> --}}
 
 </form>
 

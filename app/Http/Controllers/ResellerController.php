@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Collection;
+use Faker\Generator as Faker;
 
 
 class ResellerController extends Controller
@@ -15,7 +16,7 @@ class ResellerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Faker $faker)
     {
         // $resellers = $user->where('role','reseller')->get(); 
 
@@ -34,7 +35,7 @@ class ResellerController extends Controller
 
         $resellers = User::getallResellers();
         
-        return view('listResellers',compact('resellers'));
+        return view('listResellers',compact('resellers','faker'));
     }
 
     /**
