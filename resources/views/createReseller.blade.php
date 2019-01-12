@@ -13,7 +13,7 @@
 
 	<div class="field">
 
-		<form  method="POST" action="/resellers">
+		{{-- <form  method="POST" action="/resellers">
 			{{csrf_field()}}
 
 			<div class="field">
@@ -46,10 +46,10 @@
 
 			<button type="submit" class="button is-success" >Save changes</button>
 
-		</form>	
+		</form>	 --}}
 	{{-- </div> --}}
 
-	<form  method="POST" action="/resellers">
+	<form  method="POST" action="/resellers" enctype="multipart/form-data" files= true>
 		{{csrf_field()}}
 		<div class="field">
 			<label class="label">Name</label>
@@ -131,7 +131,14 @@
 				</div>
 			</div>
 
+			<div class="form-group has-text-dark">
+				<label for="reseller">Upload Image:</label>
+				<input type="file" class="form-control" name="resellerimage"/>
+			</div>
+
 			<button type="submit" class="button is-success" >Save changes</button>
+
+			
 
 		</form>	 <br>
 

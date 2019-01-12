@@ -24,9 +24,10 @@
 			@foreach($resellers as $user)
 
 			<div class="column is-one-quarter">
-
+				
 					<figure class="image is-128x128" style="height: 200px; width: 200px">
-							<img src={{$faker->imageUrl(400, 300,'people')}} alt="Placeholder image" style="margin-left: 10px; margin-right: 10px">
+							{{-- <img src={{$faker->imageUrl(400, 300,'people')}} alt="Placeholder image" style="margin-left: 10px; margin-right: 10px"> --}}
+							<img src={{ asset(('storage/').$user->filename) }} alt="Placeholder image" style="margin-left: 10px; margin-right: 10px">
 					</figure>
 					
 				</div>	

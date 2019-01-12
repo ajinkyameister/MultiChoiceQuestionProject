@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Faker\Generator as Faker;
 
+/**
+     * to upload and store images.
+*/
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class ResellerController extends Controller
 {
@@ -20,7 +26,7 @@ class ResellerController extends Controller
     {
         // $resellers = $user->where('role','reseller')->get(); 
 
-            
+
         // $resellers = $user->getAllResellers();
 
         // $user = new User;
@@ -57,27 +63,41 @@ class ResellerController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        // return "reseller controller entered";
+        /* 
+          Images upload  
+       */
+          $displayImage = $request->file('resellerimage');
+            // dd($request->file('resellerimage'));
+          $extension = $displayImage->getClientOriginalExtension();
+          Storage::disk('public')->put($displayImage->getFilename().'.'.$extension,  
+                        File::get($displayImage));
+
+          // $book = new Book();
+          // $path = Storage::putFile('public', $request->file('resellerimage'));
+           
+          
 
         $user->create([
-                'name'=>$request->name,
-                'role'=>'reseller',
-                'phone_number'=>$request->phone_number,
-                'address'=>$request->address,
-                'pan_card'=>$request->pan_card,
-                'email'=>$request->email,
-                'password'=>$request->password,
-
-
+            'name'=>$request->name,
+            'role'=>'reseller',
+            'phone_number'=>$request->phone_number,
+            'address'=>$request->address,
+            'pan_card'=>$request->pan_card,
+            'email'=>$request->email,
+            'password'=>$request->password,
+            'mime'=> $displayImage->getClientMimeType(),
+            'original_filename' => $displayImage->getClientOriginalName(),
+            'filename' => $displayImage->getFilename().'.'.$extension,
         ]);
 
-       $users = $user->all();
+        $users = $user->all();
 
        // return view('listResellers',compact('users'));
 
-       return redirect('/resellers');
+       
+          return redirect('/resellers');
 
-    }
+      }
 
     /**
      * Display the specified resource.
@@ -115,20 +135,20 @@ class ResellerController extends Controller
      */
     public function update(Request $request, User $user)
     {
-    
+
         // dd($user->id);  
-         $user->update(['name'=>$request->name,
-                        'address'=>$request->address,
-                        'phone_number'=>$request->phone_number,
-                        'email'=>$request->email,
-                        'pan_card'=>$request->pan_card,
-                         ]);
+       $user->update(['name'=>$request->name,
+        'address'=>$request->address,
+        'phone_number'=>$request->phone_number,
+        'email'=>$request->email,
+        'pan_card'=>$request->pan_card,
+    ]);
 
         // $resellers= $user->where('role's,'reseller')->get();
 
        return redirect("/resellers");
        
-    }
+   }
 
     /**
      * Remove the specified resource from storage.
@@ -145,16 +165,15 @@ class ResellerController extends Controller
 
         $request = New Request;
 
-                $route=[]; 
-                $routeChain="" ;
-                
-                for($i=1; $i<=count($request->segments($url));$i++) {
-                    $route[$i]= $request->segment($i);             
-                }
+        $route=[]; 
+        $routeChain="" ;
 
-            $routeChain= implode('/',$route); 
-            view('components.topnavbar',compact('routeChain'))  ;
+        for($i=1; $i<=count($request->segments($url));$i++) {
+            $route[$i]= $request->segment($i);             
+        }
+
+        $routeChain= implode('/',$route); 
+        view('components.topnavbar',compact('routeChain'))  ;
 
     }
 }
- 
