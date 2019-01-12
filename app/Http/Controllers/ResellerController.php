@@ -85,9 +85,7 @@ class ResellerController extends Controller
             'pan_card'=>$request->pan_card,
             'email'=>$request->email,
             'password'=>$request->password,
-            'mime'=> $displayImage->getClientMimeType(),
-            'original_filename' => $displayImage->getClientOriginalName(),
-            'filename' => $displayImage->getFilename().'.'.$extension,
+            
         ]);
 
         $users = $user->all();
@@ -142,6 +140,9 @@ class ResellerController extends Controller
         'phone_number'=>$request->phone_number,
         'email'=>$request->email,
         'pan_card'=>$request->pan_card,
+        'mime'=> $request->ext,
+        'original_filename' =>$request->original,
+        'filename' =>$request->filename,
     ]);
 
         // $resellers= $user->where('role's,'reseller')->get();

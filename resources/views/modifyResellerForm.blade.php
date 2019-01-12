@@ -1,47 +1,85 @@
 
 @extends('layouts.app')
 
+@section('top')
+
+@component('components.topnavbar') @endcomponent
+
+@endsection
+
 @section('mainbody')
 
-<div>
 
-
-
-
-
-	<form method="POST" action="/resellers/{{$user->id}}">
+<form method="POST" action="/resellers/{{$user->id}}">
 		{{ method_field('PATCH') }}
 
 		{{csrf_field()}}
+<div class="box">
 
-		<label> Name:</label>
-		<input id="name" type="text" name="name" value="{{$user->name}}"> <br> <br>		
+	<div class="field">
+		<label class="label">Name</label>
+		<div class="control has-icons-left">
+			<input class="input" name ="name" type="text" placeholder="" value="{{$user->name}}">
+			<span class="icon is-small is-left">
+				<i class="fas fa-user"></i>
+			</span>
+		</div>
+	</div>
 
-		<label> Phone Number:</label>
-		<input id="phoneNumber" type="integer" name="phone_number" 
-			   value={{$user->phone_number}}> <br> <br>
+	<div class="field">
+		<label class="label">Phone Number</label>
+		<div class="control has-icons-left has-icons-right">
+			<input class="input" name="phone_number" type="text" placeholder="Text input" 
+			value="{{$user->phone_number}}">
+			<span class="icon is-small is-left">
+				<i class="fas fa-phone"></i>
+			</span>
+		</div>
 
-		<label> Address:</label>
-		<input id="address" type="text" name="address" value="{{$user->address}}" > <br> <br>
+	</div>
 
-		<label> Pan Card Details:</label>
-		<input id="panCard" type="text" name="pan_card" value="{{$user->pan_card}}"> <br> <br>
+	<div class="field">
+		<label class="label">Email</label>
+		<div class="control has-icons-left has-icons-right">
+			<input class="input " name ="email"
+				 type="email" placeholder="Email input" value="{{$user->email}}">
+			<span class="icon is-small is-left">
+				<i class="fas fa-envelope"></i>
+			</span>
+			<span class="icon is-small is-right">
+				<i class="fas fa-exclamation-triangle"></i>
+			</span>
+		</div>
+	</div>
 
-		<label> Email:</label>
-		<input id="email" type="email" name="email" value="{{$user->email}}"> <br> <br>
+	<div class="field">
+		<label class="label">Address</label>
+		<div class="control has-icons-left has-icons-right">
+			<input class="input " name="address" type="text" placeholder="" value="{{$user->address}}">
+			<span class="icon is-small is-left">
+				<i class="fas fa-address-card"></i>
+			</span>
+		</div>
 
-		<label> Password:</label>
-		<input id="password" type="password" name="password" value="{{$user->password}}"> 
-		<br> <br>
+	</div>
 
-		<footer class="modal-card-foot">
-			<button type="submit" class="button is-success" >Save changes</button>
-			<button class="button" @click="closeModal()">Cancel</button>
-		</footer>
+	<div class="field">
+		<label class="label">Pan Card</label>
+		<div class="control has-icons-left has-icons-right">
+			<input class="input " name="pan_card" type="text" placeholder="" 
+				value="{{$user->pan_card}}">
+			<span class="icon is-small is-left">
+				<i class="fas fa-address-card"></i>
+			</span>
+		</div>
+	</div>
 
-	</form>	
-
+	
+	<button type="submit" class="button is-success" >Save changes</button>
+	<button class="button" @click="closeModal()">Cancel</button>
 </div>
+</form>
+
 
 @endsection
 
