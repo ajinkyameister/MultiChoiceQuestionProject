@@ -90,17 +90,6 @@ if(Route::currentRouteName() == 'about') $aboutIsActive = 'is-active';
 				</div>
 				@endif
 			</div>
-
-			{{-- CODE ADDED --}}
-
-
-
-
-
-			{{-- CODE ENDED --}}
-
-
-
 			<div class="navbar-end has-text-dark" >
 				@if(Auth::check())
 
@@ -115,7 +104,6 @@ if(Route::currentRouteName() == 'about') $aboutIsActive = 'is-active';
 				{{ csrf_field() }}
 			</form>
 
-
 			<span class="navbar-item has-text-dark" > Hi,{{ Auth::user()->name }} </span>
 
 			@endif   
@@ -126,62 +114,37 @@ if(Route::currentRouteName() == 'about') $aboutIsActive = 'is-active';
 </nav>
 </div>
 
-	<div class="content has-text-dark">
-		<div class="columns is-mobile is-multiline">
-			<div class="column is-half">
-				<nav class="breadcrumb has-succeeds-separator is-pulled-left" 
-					 aria-label="breadcrumbs">
-					<ul>
-						@php
-						$createBreadcrums=[];
-						@endphp
-						@for($i =1	; $i <= count(Request::segments()); $i++)	
-						@php 
-						$createBreadcrums[$i] = Request::segment($i);
-						$createRouteFromBreadcrums = implode('/', $createBreadcrums);
-						@endphp
-						<li> 		 
-							
-							
-          					
-          					{{-- <a href="{{Route::currentRouteName()}}">  	  --}}
-								<a href="{{$createRouteFromBreadcrums}}">
-									<span class="icon is-small">
-										@if(Request::segment($i)=='resellers')
-											<i class="fas fa-user" aria-hidden="true"></i>
-										@elseif(Request::segment($i)=='institutes')
-											<i class="fas fa-school" aria-hidden="true"></i>
-										@elseif	(Request::segment($i)=='home')
-											<i class="fas fa-home" aria-hidden="true"></i>
-										@elseif	(Request::segment($i)=='about')
-											<i class="fas fa-image" aria-hidden="true"></i>
-										@endif	
-									</span>
-									 <p>{{ucfirst(Request::segment($i))}}</p>
-								</a>
-
-
-								{{-- @elseif(Request::segment($i)==='about') --}}
-								{{-- <a href="/about"><li > {{"About Us"}}</li></a> --}}
-								{{-- @elseif(Request::segment($i)==='home') --}}
-								{{-- <a href="/home"><li>  {{"Home"}}</li> </a> --}}
-								{{-- @elseif(Request::segment($i)==='institutes') --}}
-								{{-- <a href="/institutes"> <li>{{"Institutes"}} </li>	</a> --}}
-								{{-- @endif --}}
-							{{-- </a>  --}}
-						</li>
-						{{-- @if($i < count(Request::segments()) & $i > 0) --}}
-						{{-- {!!'<i class="fa fa-angle-right"></i>'!!} --}}
-						{{-- @enif --}}
-						@endfor
-
-
-					</ul>	
-
-	
-				</nav>
-			</div>
-		</div>
-	</div>
-{{-- asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdas --}}
+<div class="content has-text-dark">
+	<nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
+		<ul>
+			@php
+			$createBreadcrums=[];
+			@endphp
+			@for($i =0; $i <= count(Request::segments()); $i++)	
+			@php 
+			$createBreadcrums[$i] = Request::segment($i);
+			$createRouteFromBreadcrums = implode('/', $createBreadcrums);			
+			@endphp
+			<li>
+					<a href="{{$createRouteFromBreadcrums}}">
+						<span class="icon is-small" >
+							@if(Request::segment($i)=='resellers')
+								<i class="fas fa-user" aria-hidden="true"></i>
+							@elseif(Request::segment($i)=='institutes')
+								<i class="fas fa-school" aria-hidden="true"></i>
+							@elseif	(Request::segment($i)=='home')
+								<i class="fas fa-home" aria-hidden="true"></i>
+							@elseif	(Request::segment($i)=='about')
+								<i class="fas fa-image" aria-hidden="true"></i>
+							@elseif	(Request::segment($i)=='create')
+								<i class="fas fa-plus-square" aria-hidden="true"></i>	
+							@endif	
+						</span>
+						<strong>{{ucfirst(Request::segment($i))}} </strong>
+					</a>
+				</li>
+			@endfor
+		</ul>	
+	</nav>
+</div>
 
